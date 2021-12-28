@@ -46,7 +46,7 @@ const MainCarousel = () => {
 
   const navigateToSpecificIndex = e => {
     const nextIndex = parseInt(e.target?.dataset?.idx);
-    nextIndex && setCarouselIndex(nextIndex);
+    setCarouselIndex(nextIndex);
   };
 
   useEffect(() => {
