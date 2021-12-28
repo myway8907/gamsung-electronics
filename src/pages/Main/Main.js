@@ -1,13 +1,13 @@
 import React from "react";
-import "./Main.scss";
 import MainCarousel from "./MainCarousel/MainCarousel";
-import ServiceCard from "./ServiceCard/ServiceCard";
+import PreviewTab from "./PreviewTab/PreviewTab";
+import "./Main.scss";
 
 const Main = () => {
   return (
     <main className="">
       <MainCarousel />
-      <ServiceCard />
+      <PreviewTab />
     </main>
   );
 };

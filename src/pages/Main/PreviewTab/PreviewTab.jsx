@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./ServiceCard.scss";
+import "./PreviewTab.scss";
 
 const TABS = [
   "Galaxy Z Flip3 5G",
@@ -19,8 +19,8 @@ const ServiceCard = () => {
   };
 
   return (
-    <section className="service-card">
-      <div className="service-card-tabs">
+    <section className="preview">
+      <div className="preview-tabs">
         <h2>모바일 & Tablet</h2>
         <ul onClick={navigateToIndex}>
           {TABS.map((tab, idx) => (
@@ -34,10 +34,7 @@ const ServiceCard = () => {
           ))}
         </ul>
       </div>
-      <ul
-        className="service-card-images"
-        style={{ "--currIdx": `${currentIdx}` }}
-      >
+      <ul className="preview-images" style={{ "--currIdx": `${currentIdx}` }}>
         {SERVICE_IMG_INDEXES.map((_, idx) => (
           <img
             src={`./images/Main/ServiceCard/serviceCard${idx + 1}.jpg`}
