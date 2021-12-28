@@ -24,14 +24,6 @@ const MainCarousel = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [carouselIndex, setCarouselIndex] = useState(0);
 
-  const showNextSlide = () => {
-    let nextIndex = carouselIndex + 1;
-    if (carouselIndex >= LAST_CAROUSEL_INDEX) {
-      nextIndex = 0;
-    }
-    timer = setTimeout(() => setCarouselIndex(nextIndex), 2500);
-  };
-
   const slideToLeft = () => {
     if (carouselIndex === 0) return;
     setCarouselIndex(prevIndex => prevIndex - 1);
@@ -45,15 +37,39 @@ const MainCarousel = () => {
   };
 
   const navigateToSpecificIndex = e => {
+    if (!e.target.dataset.idx) return;
     const nextIndex = parseInt(e.target?.dataset?.idx);
     setCarouselIndex(nextIndex);
   };
 
+  const showNextSlide = () => {
+    const nextIndex =
+      carouselIndex === LAST_CAROUSEL_INDEX ? 0 : carouselIndex + 1;
+    setTimeout(() => {
+      timer = setCarouselIndex(nextIndex);
+    }, 2500);
+  };
+
   useEffect(() => {
+    clearTimeout(timer);
     if (!isPlaying) return;
     showNextSlide();
     return () => clearTimeout(timer);
-  }, [carouselIndex, isPlaying]);
+  }, [carouselIndex]);
+
+  const pauseAutoSlide = () => {
+    setIsPlaying(false);
+  };
+
+  const playAutoSlide = () => {
+    setIsPlaying(true);
+    const nextIndex =
+      carouselIndex === LAST_CAROUSEL_INDEX ? 0 : carouselIndex + 1;
+    setCarouselIndex(carouselIndex + 1);
+    setTimeout(() => {
+      timer = setCarouselIndex(nextIndex);
+    }, 2500);
+  };
 
   return (
     <section className="hero" style={{ "--currIdx": `${carouselIndex}` }}>
@@ -81,9 +97,9 @@ const MainCarousel = () => {
           </li>
         ))}
         {isPlaying ? (
-          <IoIosPause size={20} onClick={e => setIsPlaying(prev => !prev)} />
+          <IoIosPause size={20} onClick={pauseAutoSlide} />
         ) : (
-          <IoIosPlay size={20} onClick={e => setIsPlaying(prev => !prev)} />
+          <IoIosPlay size={20} onClick={playAutoSlide} />
         )}
       </ul>
     </section>
