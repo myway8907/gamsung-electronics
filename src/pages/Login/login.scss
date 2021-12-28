@@ -61,8 +61,6 @@
             position: absolute;
             top: 0;
             left: 0;
-            transform: translateY(0);
-            font-size: 0.825em;
             transition-duration: 0.3s;
           }
 
@@ -84,6 +82,13 @@
           color: color.$bg-primary;
           font-size: 15px;
           text-align: center;
+          cursor: pointer;
+        }
+
+        .inactive {
+          background-color: rgb(140, 140, 140);
+          cursor: default;
+          opacity: 0.3;
         }
       }
 

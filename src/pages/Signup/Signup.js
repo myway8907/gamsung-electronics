@@ -23,7 +23,7 @@ const Signup = () => {
   const passwordInput = e => setPassword(e.target.value);
   const passwordCheckInput = e => setPasswordCheck(e.target.value);
   const passwordValidate = () => {
-    const regExpPassword = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{5,16}$/;
+    const regExpPassword = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{8,16}$/;
     return regExpPassword.test(password) && password === passwordCheck;
   };
   const passwordCheckValidate = () => password === passwordCheck;
@@ -32,8 +32,7 @@ const Signup = () => {
     emailValidate() && passwordValidate() && passwordCheckValidate();
 
   const signupRequest = e => {
-    e.preventDefault();
-    fetch("", {
+    fetch("http://10.58.0.137:8000/users/signup", {
       method: "POST",
       body: JSON.stringify({
         email: email,
@@ -47,9 +46,12 @@ const Signup = () => {
       .then(data => {
         if (data.MESSAGE === "SUCCESS") {
           localStorage.setItem("access_token", data.access_token);
-          console.log(data.access_token);
         }
+      })
+      .catch(error => {
+        console.error(error);
       });
+    e.preventDefault();
   };
 
   return (
