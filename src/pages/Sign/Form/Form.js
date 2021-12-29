@@ -15,7 +15,7 @@ const Form = ({ signCheck }) => {
   });
 
   const { email, password } = signInfo;
-  const { passwordCheck, year, month, day } = signupInfo;
+  const { passwordCheck, firstName, lastName, year, month, day } = signupInfo;
 
   const emailInput = e =>
     setSignInfo({
@@ -37,8 +37,7 @@ const Form = ({ signCheck }) => {
       passwordCheck: e.target.value,
     });
   const regExpPassword = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{8,16}$/;
-  const passwordValidate =
-    regExpPassword.test(password) && password === passwordCheck;
+  const passwordValidate = regExpPassword.test(password);
   const passwordCheckValidate = password === passwordCheck;
 
   const firstNameInput = e =>
@@ -80,48 +79,48 @@ const Form = ({ signCheck }) => {
   const signupValidate =
     emailValidate && passwordValidate && birthValidate && passwordCheckValidate;
 
-  // const signinRequest = e => {
-  //   fetch("http://10.58.0.137:8000/users/signin", {
-  //     method: "POST",
-  //     body: JSON.stringify({
-  //       email: signInfo.email,
-  //       password: signInfo.password,
-  //     }),
-  //   })
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       if (data.MESSAGE === "SUCCESS") {
-  //         localStorage.setItem("access_token", data.access_token);
-  //       }
-  //     })
-  //     .catch(error => {
-  //       console.error(error);
-  //     });
-  //   e.preventDefault();
-  // };
+  const signinRequest = e => {
+    fetch("http://10.58.0.137:8000/users/signin", {
+      method: "POST",
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.MESSAGE === "SUCCESS") {
+          localStorage.setItem("access_token", data.access_token);
+        }
+      })
+      .catch(error => {
+        console.error(error);
+      });
+    e.preventDefault();
+  };
 
-  // const signupRequest = e => {
-  //   fetch("http://10.58.0.137:8000/users/signup", {
-  //     method: "POST",
-  //     body: JSON.stringify({
-  //       email: signInfo.email,
-  //       password: signInfo.password,
-  //       first_name: signupInfo.firstName,
-  //       last_name: signupInfo.lastName,
-  //       date_of_birth: `${signupInfo.year}-${signupInfo.month}-${signupInfo.day}`,
-  //     }),
-  //   })
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       if (data.MESSAGE === "SUCCESS") {
-  //         localStorage.setItem("access_token", data.access_token);
-  //       }
-  //     })
-  //     .catch(error => {
-  //       console.error(error);
-  //     });
-  //   e.preventDefault();
-  // };
+  const signupRequest = e => {
+    fetch("http://10.58.0.137:8000/users/signup", {
+      method: "POST",
+      body: JSON.stringify({
+        email: email,
+        password: password,
+        first_name: firstName,
+        last_name: lastName,
+        date_of_birth: `${year}-${month}-${day}`,
+      }),
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.MESSAGE === "SUCCESS") {
+          localStorage.setItem("access_token", data.access_token);
+        }
+      })
+      .catch(error => {
+        console.error(error);
+      });
+    e.preventDefault();
+  };
 
   const SIGNININPUTS = [
     { id: 1, type: "email", text: "이메일", onchange: emailInput },
@@ -173,6 +172,7 @@ const Form = ({ signCheck }) => {
 
   const sign = signCheck === "signup";
   const SIGNCHECK = sign ? SIGNUPINPUTS : SIGNININPUTS;
+  const signValidate = sign ? signupValidate : signinValidate;
 
   return (
     <form autoComplete="off">
@@ -199,28 +199,16 @@ const Form = ({ signCheck }) => {
             );
           })}
       </div>
-      {sign ? (
-        <div className="sign-signup-button">
-          <button>뒤로</button>
-          <button
-            className={signupValidate ? "active" : "inactive"}
-            disabled={!signupValidate}
-            // onClick={signupRequest}
-          >
-            다음
-          </button>
-        </div>
-      ) : (
-        <div className="sign-signin-button">
-          <button
-            className={signinValidate ? "" : "inactive"}
-            disabled={signinValidate}
-            // onClick={loginRequest}
-          >
-            로그인
-          </button>
-        </div>
-      )}
+      <div className={`sign-${signCheck}-button`}>
+        {sign && <button>뒤로</button>}
+        <button
+          className={signValidate ? "active" : "inactive"}
+          disabled={!signValidate}
+          onClick={sign ? signupRequest : signinRequest}
+        >
+          다음
+        </button>
+      </div>
     </form>
   );
 };

@@ -2,7 +2,8 @@
 @use "../../styles/mixin" as mixin;
 
 .sign {
-  padding: 48px 0;
+  height: 100vh;
+  padding-top: 80px;
   background-color: rgb(17, 17, 17);
 
   > div {
@@ -133,5 +134,12 @@
       cursor: default;
       opacity: 0.3;
     }
+  }
+
+  a {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    text-decoration: underline solid color.$input-color;
   }
 }
