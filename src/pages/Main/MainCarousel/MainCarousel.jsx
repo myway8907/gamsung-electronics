@@ -23,6 +23,8 @@ let timer = 0;
 const MainCarousel = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [carouselIndex, setCarouselIndex] = useState(0);
+  const nextIndex =
+    carouselIndex === LAST_CAROUSEL_INDEX ? 0 : carouselIndex + 1;
 
   const slideToLeft = () => {
     if (carouselIndex === 0) return;
@@ -42,34 +44,28 @@ const MainCarousel = () => {
     setCarouselIndex(nextIndex);
   };
 
-  const showNextSlide = () => {
-    const nextIndex =
-      carouselIndex === LAST_CAROUSEL_INDEX ? 0 : carouselIndex + 1;
-    setTimeout(() => {
-      timer = setCarouselIndex(nextIndex);
+  const pauseAutoSlide = () => {
+    setIsPlaying(false);
+    clearTimeout(timer);
+  };
+
+  const playAutoSlide = () => {
+    setIsPlaying(true);
+    setTimerForNextSlide();
+  };
+
+  const setTimerForNextSlide = () => {
+    timer = setTimeout(() => {
+      setCarouselIndex(nextIndex);
     }, 2500);
   };
 
   useEffect(() => {
     clearTimeout(timer);
     if (!isPlaying) return;
-    showNextSlide();
+    setTimerForNextSlide();
     return () => clearTimeout(timer);
   }, [carouselIndex]);
-
-  const pauseAutoSlide = () => {
-    setIsPlaying(false);
-  };
-
-  const playAutoSlide = () => {
-    setIsPlaying(true);
-    const nextIndex =
-      carouselIndex === LAST_CAROUSEL_INDEX ? 0 : carouselIndex + 1;
-    setCarouselIndex(carouselIndex + 1);
-    setTimeout(() => {
-      timer = setCarouselIndex(nextIndex);
-    }, 2500);
-  };
 
   return (
     <section className="hero" style={{ "--currIdx": `${carouselIndex}` }}>
@@ -90,7 +86,7 @@ const MainCarousel = () => {
             key={idx}
             data-idx={idx}
             className={`hero__navigator-decoration ${
-              carouselIndex === idx ? "current" : ""
+              isPlaying && carouselIndex === idx ? "current" : ""
             }`}
           >
             {navigator}
