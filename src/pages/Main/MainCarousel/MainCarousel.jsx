@@ -71,7 +71,7 @@ const MainCarousel = () => {
     <section className="hero" style={{ "--currIdx": `${carouselIndex}` }}>
       <IoIosArrowBack size={52} className="arrow" onClick={slideToLeft} />
       <IoIosArrowForward size={52} className="arrow" onClick={slideToRight} />
-      <div className="hero__carousel">
+      <div className="hero-carousel">
         {IMGARR.map((_, idx) => (
           <img
             src={`./images/Main/Hero/fakeImage${idx + 1}.jpg`}
@@ -80,12 +80,12 @@ const MainCarousel = () => {
           />
         ))}
       </div>
-      <ul className="hero__navigator" onClick={navigateToSpecificIndex}>
+      <ul className="hero-navigator" onClick={navigateToSpecificIndex}>
         {NAVIGATOR.map((navigator, idx) => (
           <li
             key={idx}
             data-idx={idx}
-            className={`hero__navigator-decoration ${
+            className={`hero-navigator-decoration ${
               isPlaying && carouselIndex === idx ? "current" : ""
             }`}
           >

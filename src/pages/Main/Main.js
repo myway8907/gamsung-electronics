@@ -7,7 +7,7 @@ import "./Main.scss";
 
 const Main = () => {
   return (
-    <main className="">
+    <main className="main-container">
       <MainCarousel />
       <Services />
       <PreviewTab />

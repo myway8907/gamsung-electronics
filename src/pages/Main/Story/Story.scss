@@ -1,14 +1,14 @@
 @use "../../../styles/color" as color;
 @use "../../../styles/mixin" as mixin;
 
-.main__story {
+.main-story {
   display: grid;
   grid-template-columns: 1fr 1.5fr 1fr;
   gap: 1em;
   place-items: center;
   padding: 2rem 1rem 4rem;
 
-  .story__header {
+  .story-header {
     h2 {
       font-size: 2.75rem;
       text-align: left;
@@ -21,7 +21,7 @@
     }
   }
 
-  .story__images {
+  .story-images {
     @include mixin.flex;
     overflow: hidden;
 
@@ -31,7 +31,7 @@
     }
   }
 
-  .story__lists {
+  .story-lists {
     .story {
       padding: 1em;
       background: linear-gradient(to right, #334155, rgba(211, 211, 211, 0.711))

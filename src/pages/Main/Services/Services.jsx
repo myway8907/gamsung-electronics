@@ -1,5 +1,4 @@
 import React from "react";
-import ServiceCard from "./ServiceCard/ServiceCard";
 import {
   FaRedhat,
   FaRing,
@@ -10,7 +9,35 @@ import {
 } from "react-icons/fa";
 import { MdOutlineHdrOnSelect } from "react-icons/md";
 import { BsHeadset } from "react-icons/bs";
+import ServiceCard from "./ServiceCard/ServiceCard";
 import "./Services.scss";
+
+const Services = () => {
+  return (
+    <section className="services">
+      <ul className="services-tab">
+        {SERVICES.map((service, idx) => (
+          <li key={idx} className="service-name">
+            {service}
+          </li>
+        ))}
+      </ul>
+      <section className="services-cards">
+        {CARDS.map((card, idx) => (
+          <ServiceCard
+            key={idx}
+            Icon={card.Icon}
+            bg={card.bg}
+            title={card.title}
+            description={card.desc}
+          />
+        ))}
+      </section>
+    </section>
+  );
+};
+
+export default Services;
 
 const SERVICES = [
   "셀렉트샵",
@@ -78,30 +105,3 @@ const CARDS = [
     desc: "언제 어디서나 편하게 방문할 수 있는 비대면 온라인 스토어",
   },
 ];
-
-const Services = () => {
-  return (
-    <section className="services">
-      <ul className="services__tab">
-        {SERVICES.map((service, idx) => (
-          <li key={idx} className="service-name">
-            {service}
-          </li>
-        ))}
-      </ul>
-      <section className="services__cards">
-        {CARDS.map((card, idx) => (
-          <ServiceCard
-            key={idx}
-            Icon={card.Icon}
-            bg={card.bg}
-            title={card.title}
-            description={card.desc}
-          />
-        ))}
-      </section>
-    </section>
-  );
-};
-
-export default Services;

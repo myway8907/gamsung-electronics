@@ -5,7 +5,7 @@
   min-height: 100vh;
   padding: 2rem 5rem;
 
-  &__tab {
+  &-tab {
     @include mixin.flex($justify: center);
     gap: 2em;
     font-size: 1rem;
@@ -24,7 +24,7 @@
     }
   }
 
-  &__cards {
+  &-cards {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 1fr 1fr;

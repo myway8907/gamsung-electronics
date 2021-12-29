@@ -21,7 +21,7 @@
     }
   }
 
-  &__carousel {
+  &-carousel {
     @include mixin.flex;
     transform: translateX(calc(var(--currIdx) * -100vw));
     transition: all 0.75s ease-in;
@@ -34,7 +34,7 @@
     }
   }
 
-  &__navigator {
+  &-navigator {
     @include mixin.flex($justify: center);
     gap: 0.75em;
     position: absolute;
