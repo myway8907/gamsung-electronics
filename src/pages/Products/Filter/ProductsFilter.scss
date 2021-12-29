@@ -1,0 +1,84 @@
+@use "src/styles/common.scss";
+@use "src/styles/reset.scss";
+@use "src/styles/_mixin.scss";
+
+.productFilter {
+  position: relative;
+  padding: 1vw 0.5vw;
+
+  .product-type-filter {
+    font-weight: bold;
+    letter-spacing: -0.02em;
+  }
+
+  .plus-button:nth-child(1) {
+    position: absolute;
+    right: 40px;
+    top: 12px;
+    width: 34px;
+    height: 26px;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .plus-button:nth-child(2),
+  .plus-button:nth-child(3),
+  .plus-button:nth-child(4) {
+    display: inline-block;
+    height: 4px;
+    width: 34px;
+    border: 0;
+    border-radius: 2px;
+    background-color: #b3b0b0;
+    cursor: pointer;
+  }
+  .plus-button:nth-child(2) {
+    position: absolute;
+    right: 40px;
+    top: 12px;
+  }
+  .plus-button:nth-child(3) {
+    position: absolute;
+    right: 40px;
+    top: 22px;
+  }
+  .plus-button:nth-child(4) {
+    position: absolute;
+    right: 40px;
+    top: 32px;
+  }
+  // }
+
+  .expand-input {
+    display: none;
+  }
+
+  .filtering-list {
+    height: 0;
+    overflow: hidden;
+    transition-property: height;
+    transition-duration: 0.7s;
+    transition-timing-function: linear;
+    list-style: none;
+    line-height: 34px;
+
+    input {
+      margin-left: 10px;
+    }
+    span {
+      padding-left: 20px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
+  .expand-input:checked ~ .filtering-list {
+    height: 500px;
+    transition-property: height;
+    transition-duration: 1s;
+    transition-timing-function: linear;
+  }
+
+  .filtering-list {
+    margin-top: 20px;
+  }
+}

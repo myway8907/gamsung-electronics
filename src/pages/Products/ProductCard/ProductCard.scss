@@ -1,0 +1,101 @@
+@use "src/styles/common.scss";
+@use "src/styles/reset.scss";
+@use "src/styles/_mixin.scss";
+
+.productCard {
+  //카드 하나의 width는 grid에 의해 정해진다
+  outline: 0.5px solid transparent;
+  border-radius: 25px;
+  padding: 28px 30px 18px;
+  // background-color: rgb(247, 247, 247);
+  background-color: #f7f7f7;
+  text-align: center;
+
+  .product-image {
+    display: block;
+    width: 100%; //
+    // height: 350px; //나중에 이거 지워서 width와 비율에 의해 height가 정해지도록 해야함
+  }
+  .product-color-container {
+    @include mixin.flex;
+    flex-wrap: wrap;
+    gap: 0.4em;
+    justify-content: center;
+    margin-top: 16px;
+    font-size: 2rem;
+
+    // .product-color-collection {
+    //   display: flex;
+    //   justify-content: space-between;
+    //   // word-break: keep-all;
+    //   // text-overflow: hidden;
+    // }
+    .product-color-selector {
+      display: block;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: brown;
+    }
+    .product-color-selector:nth-child(1) {
+      background-color: turquoise;
+    }
+    .product-color-selector:nth-child(2) {
+      background-color: pink;
+    }
+    .product-color-selector:nth-child(3) {
+      background-color: blueviolet;
+    }
+  }
+  .product-storage {
+    @include mixin.flex;
+    justify-content: center;
+    margin-top: 25px;
+    .product-storage-selector {
+      padding: 0 10px; //동그라미 크기 좀 키우려고 임시로 넣은것
+    }
+  }
+  .product-title {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    height: 125px;
+    margin-top: 25px;
+
+    .product-title-text {
+      font-size: 24px;
+      font-weight: bold;
+      letter-spacing: -1px;
+      word-break: keep-all;
+    }
+    .product-model {
+      font-size: 12px;
+      color: #707070;
+    }
+  }
+  .product-price {
+    padding-top: 30px;
+    .price-number {
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .price-currency {
+      font-size: 16px;
+      padding-left: 5px;
+    }
+  }
+  .product-purchase {
+    margin: 20px 0;
+    letter-spacing: -0.02em;
+
+    .purchase-button {
+      width: 100%;
+      height: 40px;
+      font-size: 14px;
+      border-radius: 20px;
+      color: #fff;
+      background-color: #212425;
+    }
+  }
+}
