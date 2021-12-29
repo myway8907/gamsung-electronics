@@ -27,10 +27,8 @@
     transition: all 0.75s ease-in;
 
     img {
-      display: block;
       min-width: 100vw;
       height: 35rem;
-      object-fit: cover;
     }
   }
 
@@ -41,7 +39,6 @@
     left: 0;
     right: 0;
     bottom: 9%;
-    padding: 0 10rem;
 
     &-decoration {
       display: inline-block;

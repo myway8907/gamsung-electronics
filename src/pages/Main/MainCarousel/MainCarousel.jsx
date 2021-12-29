@@ -5,19 +5,10 @@ import {
   IoIosPause,
   IoIosPlay,
 } from "react-icons/io";
+import { NAVIGATOR } from "../data";
 import "./MainCarousel.scss";
 
-const LAST_CAROUSEL_INDEX = 6;
-const NAVIGATOR = [
-  "BESPOKE큐커",
-  "Galaxy book",
-  "공동구매",
-  "갤럭시 Z 플립3",
-  "갤럭시 워치 4",
-  "Neo QLED",
-  "Team Samsung",
-];
-const IMGARR = Array(7).fill(0);
+const LAST_CAROUSEL_INDEX = NAVIGATOR.length - 1;
 let timer = 0;
 
 const MainCarousel = () => {
@@ -36,12 +27,6 @@ const MainCarousel = () => {
     if (carouselIndex === LAST_CAROUSEL_INDEX) return;
     setCarouselIndex(prevIndex => prevIndex + 1);
     clearTimeout(timer);
-  };
-
-  const navigateToSpecificIndex = e => {
-    if (!e.target.dataset.idx) return;
-    const nextIndex = parseInt(e.target?.dataset?.idx);
-    setCarouselIndex(nextIndex);
   };
 
   const pauseAutoSlide = () => {
@@ -72,7 +57,7 @@ const MainCarousel = () => {
       <IoIosArrowBack size={52} className="arrow" onClick={slideToLeft} />
       <IoIosArrowForward size={52} className="arrow" onClick={slideToRight} />
       <div className="hero-carousel">
-        {IMGARR.map((_, idx) => (
+        {NAVIGATOR.map((_, idx) => (
           <img
             src={`./images/Main/Hero/fakeImage${idx + 1}.jpg`}
             key={idx}
@@ -80,11 +65,11 @@ const MainCarousel = () => {
           />
         ))}
       </div>
-      <ul className="hero-navigator" onClick={navigateToSpecificIndex}>
+      <ul className="hero-navigator">
         {NAVIGATOR.map((navigator, idx) => (
           <li
             key={idx}
-            data-idx={idx}
+            onClick={() => setCarouselIndex(idx)}
             className={`hero-navigator-decoration ${
               isPlaying && carouselIndex === idx ? "current" : ""
             }`}
