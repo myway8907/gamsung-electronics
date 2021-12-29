@@ -1,23 +1,44 @@
 import React from "react";
-import Form from "./Form/Form";
+import { useLocation } from "react-router-dom";
+import FormLayout from "./Form/FormLayout";
 import AuthHeader from "../../components/AuthHeader";
 import "./sign.scss";
 
 const Sign = () => {
+  const location = useLocation();
   return (
     <>
       <AuthHeader />
       <main className="sign">
-        <div>
-          <section>
-            <h1>삼성계정 만들기</h1>
-            <span>계정으로 사용할 이메일 주소를 입력하세요.</span>
-            <Form />
-          </section>
-        </div>
+        {location.pathname === "/signin" && (
+          <FormLayout
+            text={SIGNIN.text}
+            isSubtext={SIGNIN.isSubtext}
+            signCheck={SIGNIN.signCheck}
+          />
+        )}
+        {location.pathname === "/signup" && (
+          <FormLayout
+            text={SIGNUP.text}
+            isSubtext={SIGNUP.isSubtext}
+            signCheck={SIGNUP.signCheck}
+          />
+        )}
       </main>
     </>
   );
+};
+
+const SIGNIN = {
+  text: "삼성계정으로 로그인",
+  isSubtext: false,
+  signCheck: "signin",
+};
+
+const SIGNUP = {
+  text: "삼성계정 만들기",
+  isSubtext: true,
+  signCheck: "signup",
 };
 
 export default Sign;

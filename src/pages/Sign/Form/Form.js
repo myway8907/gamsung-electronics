@@ -2,16 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import Input from "./Input/Input";
-// import EmailInput from "./Input/SignInput/EmailInput";
-// import PasswordInput from "./Input/SignInput/PasswordInput";
-// import PasswordCheckInput from "./Input/SignupInput/PasswordCheckInput";
-// import FirstNameInput from "./Input/SignupInput/FirstNameInput";
-// import LastNameInput from "./Input/SignupInput/LastNameInput";
-// import YearInput from "./Input/SignupInput/birth/YearInput";
-// import MonthInput from "./Input/SignupInput/birth/MonthInput";
-// import DayInput from "./Input/SignupInput/birth/DayInput";
 
-const Form = () => {
+const Form = ({ signCheck }) => {
   const [signInfo, setSignInfo] = useState({ email: "", password: "" });
   const [signupInfo, setSignupInfo] = useState({
     passwordCheck: "",
@@ -84,6 +76,7 @@ const Form = () => {
   const dayCheck = 1 <= day && day <= 31;
   const birthValidate = yearCheck && monthCheck && dayCheck;
 
+  const signinValidate = emailValidate && passwordValidate;
   const signupValidate =
     emailValidate && passwordValidate && birthValidate && passwordCheckValidate;
 
@@ -178,42 +171,56 @@ const Form = () => {
     },
   ];
 
+  const sign = signCheck === "signup";
+  const SIGNCHECK = sign ? SIGNUPINPUTS : SIGNININPUTS;
+
   return (
-    <form>
-      {SIGNUPINPUTS.map(ele => {
+    <form autoComplete="off">
+      {SIGNCHECK.map(element => {
         return (
           <Input
-            key={ele.id}
-            type={ele.type}
-            text={ele.text}
-            onchange={ele.onchange}
+            key={element.id}
+            type={element.type}
+            text={element.text}
+            onchange={element.onchange}
           />
         );
       })}
       <div className="sign-signup-birth">
-        {SIGNUPBIRTH.map(ele => {
-          return (
-            <Input
-              key={ele.id}
-              type={ele.type}
-              text={ele.text}
-              onchange={ele.onchange}
-            />
-          );
-        })}
+        {sign &&
+          SIGNUPBIRTH.map(element => {
+            return (
+              <Input
+                key={element.id}
+                type={element.type}
+                text={element.text}
+                onchange={element.onchange}
+              />
+            );
+          })}
       </div>
-      <div className="sign-signup-button">
-        <button>
-          <Link to="/">뒤로</Link>
-        </button>
-        <button
-          className={signupValidate ? "active" : "inactive"}
-          disabled={!signupValidate}
-          // onClick={signupRequest}
-        >
-          다음
-        </button>
-      </div>
+      {sign ? (
+        <div className="sign-signup-button">
+          <button>뒤로</button>
+          <button
+            className={signupValidate ? "active" : "inactive"}
+            disabled={!signupValidate}
+            // onClick={signupRequest}
+          >
+            다음
+          </button>
+        </div>
+      ) : (
+        <div className="sign-signin-button">
+          <button
+            className={signinValidate ? "" : "inactive"}
+            disabled={signinValidate}
+            // onClick={loginRequest}
+          >
+            로그인
+          </button>
+        </div>
+      )}
     </form>
   );
 };

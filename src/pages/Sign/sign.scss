@@ -113,4 +113,25 @@
       width: 25%;
     }
   }
+
+  &-signin-button {
+    button {
+      width: 280px;
+      padding: 10px 20px;
+      margin: 50px auto;
+      background-color: rgb(93, 93, 93);
+      border: 1px solid rgb(93, 93, 93);
+      border-radius: 25px;
+      color: color.$bg-primary;
+      font-size: 15px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .inactive {
+      background-color: rgb(140, 140, 140);
+      cursor: default;
+      opacity: 0.3;
+    }
+  }
 }
