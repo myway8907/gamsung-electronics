@@ -1,0 +1,64 @@
+@use "../../../styles/color" as color;
+@use "../../../styles/mixin" as mixin;
+
+.main__story {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  gap: 1em;
+  place-items: center;
+  padding: 2rem 1rem 4rem;
+
+  .story__header {
+    h2 {
+      font-size: 2.75rem;
+      text-align: left;
+    }
+
+    p {
+      margin-top: 1.5em;
+      font-size: 0.875rem;
+      line-height: 1.2;
+    }
+  }
+
+  .story__images {
+    @include mixin.flex;
+    overflow: hidden;
+
+    img {
+      max-height: 25rem;
+      border-radius: 1rem;
+    }
+  }
+
+  .story__lists {
+    .story {
+      padding: 1em;
+      background: linear-gradient(to right, #334155, rgba(211, 211, 211, 0.711))
+        no-repeat left / 0%;
+      font-size: 1rem;
+      font-weight: bold;
+      transition: background 500ms ease-in, color 750ms ease-out;
+
+      &:hover {
+        background-size: 100%;
+        color: color.$bg-primary;
+      }
+
+      &::after {
+        content: "더 알아보기";
+        display: block;
+        margin-left: 2.25em;
+        font-size: 0.675rem;
+        font-weight: light;
+        text-decoration: underline;
+        opacity: 0;
+        transition: opacity 200ms ease-in;
+      }
+
+      &:hover::after {
+        opacity: 1;
+      }
+    }
+  }
+}
