@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-import EmailInput from "./Input/SignInput/EmailInput";
-import PasswordInput from "./Input/SignInput/PasswordInput";
-import PasswordCheckInput from "./Input/SignupInput/PasswordCheckInput";
-import FirstNameInput from "./Input/SignupInput/FirstNameInput";
-import LastNameInput from "./Input/SignupInput/LastNameInput";
-import YearInput from "./Input/SignupInput/birth/YearInput";
-import MonthInput from "./Input/SignupInput/birth/MonthInput";
-import DayInput from "./Input/SignupInput/birth/DayInput";
+import Input from "./Input/Input";
+// import EmailInput from "./Input/SignInput/EmailInput";
+// import PasswordInput from "./Input/SignInput/PasswordInput";
+// import PasswordCheckInput from "./Input/SignupInput/PasswordCheckInput";
+// import FirstNameInput from "./Input/SignupInput/FirstNameInput";
+// import LastNameInput from "./Input/SignupInput/LastNameInput";
+// import YearInput from "./Input/SignupInput/birth/YearInput";
+// import MonthInput from "./Input/SignupInput/birth/MonthInput";
+// import DayInput from "./Input/SignupInput/birth/DayInput";
 
 const Form = () => {
   const [signInfo, setSignInfo] = useState({ email: "", password: "" });
@@ -20,6 +21,7 @@ const Form = () => {
     month: "",
     day: "",
   });
+
   const { email, password } = signInfo;
   const { passwordCheck, year, month, day } = signupInfo;
 
@@ -128,17 +130,77 @@ const Form = () => {
   //   e.preventDefault();
   // };
 
+  const SIGNININPUTS = [
+    { id: 1, type: "email", text: "이메일", onchange: emailInput },
+    { id: 2, type: "password", text: "비밀번호", onchange: passwordInput },
+  ];
+
+  const SIGNUPINPUTS = [
+    ...SIGNININPUTS,
+    {
+      id: 3,
+      type: "password",
+      text: "비밀번호 확인",
+      onchange: passwordCheckInput,
+    },
+    {
+      id: 4,
+      type: "text",
+      text: "성",
+      onchange: lastNameInput,
+    },
+    {
+      id: 5,
+      type: "text",
+      text: "이름",
+      onchange: firstNameInput,
+    },
+  ];
+
+  const SIGNUPBIRTH = [
+    {
+      id: 6,
+      type: "text",
+      text: "년",
+      onchange: yearInput,
+    },
+    {
+      id: 7,
+      type: "text",
+      text: "월",
+      onchange: monthInput,
+    },
+    {
+      id: 8,
+      type: "text",
+      text: "일",
+      onchange: dayInput,
+    },
+  ];
+
   return (
     <form>
-      <EmailInput emailInput={emailInput} />
-      <PasswordInput passwordInput={passwordInput} />
-      <PasswordCheckInput passwordCheckInput={passwordCheckInput} />
-      <FirstNameInput firstNameInput={firstNameInput} />
-      <LastNameInput lastNameInput={lastNameInput} />
+      {SIGNUPINPUTS.map(ele => {
+        return (
+          <Input
+            key={ele.id}
+            type={ele.type}
+            text={ele.text}
+            onchange={ele.onchange}
+          />
+        );
+      })}
       <div className="sign-signup-birth">
-        <YearInput yearInput={yearInput} />
-        <MonthInput monthInput={monthInput} />
-        <DayInput dayInput={dayInput} />
+        {SIGNUPBIRTH.map(ele => {
+          return (
+            <Input
+              key={ele.id}
+              type={ele.type}
+              text={ele.text}
+              onchange={ele.onchange}
+            />
+          );
+        })}
       </div>
       <div className="sign-signup-button">
         <button>
