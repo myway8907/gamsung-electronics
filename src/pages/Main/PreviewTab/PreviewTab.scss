@@ -4,30 +4,4 @@
   position: relative;
   margin: 1rem;
   overflow: hidden;
-
-  .more-info {
-    position: absolute;
-    bottom: 5%;
-    left: 0;
-    right: 0;
-    color: color.$button-color;
-    text-align: center;
-    font-size: 1.25rem;
-
-    h2 {
-      font-size: 2.5rem;
-      color: #000;
-    }
-
-    button {
-      margin-top: 1em;
-      padding: 0.75em 1.5em;
-      background-color: color.$button-color;
-      color: #fff;
-      border-radius: 2em;
-      font-size: 0.875rem;
-      font-weight: 500;
-      cursor: pointer;
-    }
-  }
 }

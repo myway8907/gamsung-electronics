@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Carousel from "../components/Carousel/Carousel";
 import Navigator from "../components/Navigator/Navigator";
+import Info from "../components/Info/Info";
+import Button from "../components/Button/Button";
 import { TABS } from "../data";
 import "./PreviewTab.scss";
 
@@ -27,11 +29,12 @@ const ServiceCard = () => {
           <h2>모바일 & Tablet</h2>
         </Navigator>
       </Carousel>
-      <div className="more-info">
-        <h2>갤럭시 온라인 체험</h2>
-        <p>나만의 공간에서 즐기는 와이드 스크린</p>
-        <button>더 알아보기 </button>
-      </div>
+      <Info
+        title="갤럭시 온라인 체험"
+        subtitle="나만의 공간에서 즐기는 와이드 스크린"
+      >
+        <Button text="더 알아보기" />
+      </Info>
     </section>
   );
 };
