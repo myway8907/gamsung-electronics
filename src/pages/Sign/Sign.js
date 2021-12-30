@@ -7,17 +7,17 @@ import "./sign.scss";
 const Sign = () => {
   const location = useLocation();
   const signLocation = location.pathname === "/signup" ? SIGNUP : SIGNIN;
-
+  const { text, isSubtext, signCheck, signText, signLink } = signLocation;
   return (
     <>
       <AuthHeader />
       <main className="sign">
         <FormLayout
-          text={signLocation.text}
-          isSubtext={signLocation.isSubtext}
-          signCheck={signLocation.signCheck}
-          signText={signLocation.signText}
-          signLink={signLocation.signLink}
+          text={text}
+          isSubtext={isSubtext}
+          signCheck={signCheck}
+          signText={signText}
+          signLink={signLink}
         />
       </main>
     </>

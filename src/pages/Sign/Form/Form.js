@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Input from "./Input/Input";
+import "./form.scss";
 
 const Form = ({ signCheck }) => {
   const [signInfo, setSignInfo] = useState({ email: "", password: "" });
@@ -15,58 +16,29 @@ const Form = ({ signCheck }) => {
   const { email, password } = signInfo;
   const { passwordCheck, firstName, lastName, year, month, day } = signupInfo;
 
-  const emailInput = e =>
+  const signInput = e => {
+    const { name, value } = e.target;
     setSignInfo({
       ...signInfo,
-      email: e.target.value,
+      [name]: value,
     });
+  };
+
+  const signupInput = e => {
+    const { name, value } = e.target;
+    setSignupInfo({
+      ...signupInfo,
+      [name]: value,
+    });
+  };
+
   const regExpEmail =
     /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
   const emailValidate = regExpEmail.test(email);
 
-  const passwordInput = e =>
-    setSignInfo({
-      ...signInfo,
-      password: e.target.value,
-    });
-  const passwordCheckInput = e =>
-    setSignupInfo({
-      ...signupInfo,
-      passwordCheck: e.target.value,
-    });
   const regExpPassword = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{8,16}$/;
   const passwordValidate = regExpPassword.test(password);
   const passwordCheckValidate = password === passwordCheck;
-
-  const firstNameInput = e =>
-    setSignupInfo({
-      ...signupInfo,
-      firstName: e.target.value,
-    });
-
-  const lastNameInput = e =>
-    setSignupInfo({
-      ...signupInfo,
-      lastName: e.target.value,
-    });
-
-  const yearInput = e =>
-    setSignupInfo({
-      ...signupInfo,
-      year: e.target.value,
-    });
-
-  const monthInput = e =>
-    setSignupInfo({
-      ...signupInfo,
-      month: e.target.value,
-    });
-
-  const dayInput = e =>
-    setSignupInfo({
-      ...signupInfo,
-      day: e.target.value,
-    });
 
   const yearCheck = 1900 <= year && year <= 2021;
   const monthCheck = 1 <= month && month <= 12;
@@ -76,6 +48,9 @@ const Form = ({ signCheck }) => {
   const signinValidate = emailValidate && passwordValidate;
   const signupValidate =
     emailValidate && passwordValidate && birthValidate && passwordCheckValidate;
+
+  const isSign = signCheck === "signup";
+  const signValidate = isSign ? signupValidate : signinValidate;
 
   const signinRequest = e => {
     fetch("http://10.58.0.137:8000/users/signin", {
@@ -120,64 +95,71 @@ const Form = ({ signCheck }) => {
     e.preventDefault();
   };
 
-  const SIGNININPUTS = [
-    { id: 1, type: "email", text: "이메일", onchange: emailInput },
-    { id: 2, type: "password", text: "비밀번호", onchange: passwordInput },
+  const SIGNIN_INPUTS = [
+    {
+      name: "email",
+      type: "email",
+      text: "이메일",
+      onchange: signInput,
+    },
+    {
+      name: "password",
+      type: "password",
+      text: "비밀번호",
+      onchange: signInput,
+    },
   ];
 
-  const SIGNUPINPUTS = [
-    ...SIGNININPUTS,
+  const SIGNUP_INPUTS = [
+    ...SIGNIN_INPUTS,
     {
-      id: 3,
+      name: "passwordCheck",
       type: "password",
       text: "비밀번호 확인",
-      onchange: passwordCheckInput,
+      onchange: signupInput,
     },
     {
-      id: 4,
+      name: "firstName",
       type: "text",
       text: "성",
-      onchange: lastNameInput,
+      onchange: signupInput,
     },
     {
-      id: 5,
+      name: "lastName",
       type: "text",
       text: "이름",
-      onchange: firstNameInput,
+      onchange: signupInput,
     },
   ];
 
-  const SIGNUPBIRTH = [
+  const SIGNUP_BIRTH = [
     {
-      id: 6,
+      name: "year",
       type: "text",
       text: "년",
-      onchange: yearInput,
+      onchange: signupInput,
     },
     {
-      id: 7,
+      name: "month",
       type: "text",
       text: "월",
-      onchange: monthInput,
+      onchange: signupInput,
     },
     {
-      id: 8,
+      name: "day",
       type: "text",
       text: "일",
-      onchange: dayInput,
+      onchange: signupInput,
     },
   ];
-
-  const isSign = signCheck === "signup";
-  const SIGNCHECK = isSign ? SIGNUPINPUTS : SIGNININPUTS;
-  const signValidate = isSign ? signupValidate : signinValidate;
-
+  const SIGN_CHECK = isSign ? SIGNUP_INPUTS : SIGNIN_INPUTS;
   return (
-    <form autoComplete="off">
-      {SIGNCHECK.map(element => {
+    <form autoComplete="off" className="sign-form">
+      {SIGN_CHECK.map(element => {
         return (
           <Input
-            key={element.id}
+            key={element.name}
+            name={element.name}
             type={element.type}
             text={element.text}
             onchange={element.onchange}
@@ -186,10 +168,11 @@ const Form = ({ signCheck }) => {
       })}
       <div className="sign-signup-birth">
         {isSign &&
-          SIGNUPBIRTH.map(element => {
+          SIGNUP_BIRTH.map(element => {
             return (
               <Input
-                key={element.id}
+                key={element.name}
+                name={element.name}
                 type={element.type}
                 text={element.text}
                 onchange={element.onchange}

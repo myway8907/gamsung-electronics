@@ -1,9 +1,10 @@
 import React from "react";
+import "./input.scss";
 
-const Input = ({ type, text, onchange }) => {
+const Input = ({ name, type, text, onchange }) => {
   return (
     <label>
-      <input type={type} placeholder={text} onChange={onchange} />
+      <input name={name} type={type} placeholder={text} onChange={onchange} />
       <span>{text}</span>
     </label>
   );
