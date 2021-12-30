@@ -168,9 +168,9 @@ const Form = ({ signCheck }) => {
     },
   ];
 
-  const sign = signCheck === "signup";
-  const SIGNCHECK = sign ? SIGNUPINPUTS : SIGNININPUTS;
-  const signValidate = sign ? signupValidate : signinValidate;
+  const isSign = signCheck === "signup";
+  const SIGNCHECK = isSign ? SIGNUPINPUTS : SIGNININPUTS;
+  const signValidate = isSign ? signupValidate : signinValidate;
 
   return (
     <form autoComplete="off">
@@ -185,7 +185,7 @@ const Form = ({ signCheck }) => {
         );
       })}
       <div className="sign-signup-birth">
-        {sign &&
+        {isSign &&
           SIGNUPBIRTH.map(element => {
             return (
               <Input
@@ -198,11 +198,11 @@ const Form = ({ signCheck }) => {
           })}
       </div>
       <div className={`sign-${signCheck}-button`}>
-        {sign && <button>뒤로</button>}
+        {isSign && <button>뒤로</button>}
         <button
           className={signValidate ? "active" : "inactive"}
           disabled={!signValidate}
-          onClick={sign ? signupRequest : signinRequest}
+          onClick={isSign ? signupRequest : signinRequest}
         >
           다음
         </button>
