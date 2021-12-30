@@ -24,25 +24,29 @@
   .story-images {
     @include mixin.flex;
     overflow: hidden;
+    transition: all 1s ease-in;
 
     img {
-      max-height: 25rem;
+      min-width: 100%;
+      min-width: 35rem;
+      height: 25rem;
       border-radius: 1rem;
     }
   }
 
   .story-lists {
     .story {
-      padding: 1em;
-      background: linear-gradient(to right, #575e69, rgba(211, 211, 211, 0.711))
+      padding: 0.5em 1.5em;
+      border-radius: 1.75em;
+      background: linear-gradient(to right, #96999e, rgba(211, 211, 211, 0.711))
         no-repeat left / 0%;
       font-size: 1rem;
       font-weight: bold;
-      transition: background 500ms ease-in, color 750ms ease-out;
+      transition: background 400ms ease-in, color 750ms ease-out;
 
       &:hover {
         background-size: 100%;
-        color: color.$bg-primary;
+        color: color.$bg-gray;
       }
 
       &::after {
@@ -58,6 +62,9 @@
 
       &:hover::after {
         opacity: 1;
+      }
+      & + & {
+        margin-top: 0.25em;
       }
     }
   }

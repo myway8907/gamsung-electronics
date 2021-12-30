@@ -76,7 +76,7 @@ export const SERVICES = [
   "공동구매",
 ];
 
-export const NAVIGATOR = [
+export const HERO = [
   "BESPOKE큐커",
   "Galaxy book",
   "공동구매",

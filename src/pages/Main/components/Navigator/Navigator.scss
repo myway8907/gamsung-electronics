@@ -1,0 +1,59 @@
+@use "../../../../styles/mixin" as mixin;
+@use "../../../../styles/color" as color;
+
+.navigator {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: var(--top);
+  color: var(--color, color.$bg-primary);
+  text-align: center;
+  z-index: 1;
+
+  &-tabs {
+    @include mixin.flex($justify: center);
+    gap: 1em;
+    font-size: 1rem;
+    font-weight: bold;
+
+    .tab {
+      position: relative;
+      padding: 0 0.25em 0.5em;
+      cursor: pointer;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: var(--right, 100%);
+        top: 100%;
+        height: 2px;
+        background-color: var(--nav-color, #000);
+      }
+
+      &::after {
+        content: "";
+        right: 100%;
+        position: absolute;
+        background-color: color.$bg-primary;
+        opacity: 0;
+      }
+
+      &.playing::after {
+        opacity: 1;
+        animation: videoOn 2.5s ease-in-out;
+      }
+
+      &.current {
+        border-bottom: 2px solid #000;
+      }
+    }
+  }
+
+  @keyframes videoOn {
+    to {
+      right: 0;
+    }
+  }
+}

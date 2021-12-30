@@ -1,4 +1,3 @@
-@use "../../../styles/mixin" as mixin;
 @use "../../../styles/color" as color;
 
 .preview {
@@ -6,74 +5,12 @@
   margin: 1rem;
   overflow: hidden;
 
-  &-tabs {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 5%;
-    z-index: 1;
-
-    h2 {
-      text-align: center;
-      margin-bottom: 0.5em;
-      font-size: 1.5rem;
-    }
-
-    ul {
-      @include mixin.flex($justify: center);
-      gap: 2em;
-      cursor: pointer;
-    }
-
-    .tab {
-      position: relative;
-      padding-bottom: 0.5em;
-      font-size: 1rem;
-      font-weight: bold;
-
-      &::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        border-bottom: 1.5px solid black;
-        opacity: 0;
-      }
-
-      &.current::after {
-        opacity: 1;
-      }
-    }
-  }
-
-  &-slider {
-    position: relative;
-    overflow: hidden;
-  }
-
-  &-images {
-    @include mixin.flex;
-    gap: 1em;
-    margin-top: 1rem;
-    transform: translateX(calc(var(--currIdx) * (-100% - 1rem)));
-    transition: all 0.5s ease-in;
-
-    img {
-      display: block;
-      min-width: 100%;
-      height: 105vh;
-      object-fit: cover;
-    }
-  }
-
   .more-info {
     position: absolute;
     bottom: 5%;
     left: 0;
     right: 0;
-    background: linear-gradient(to right, rgba(211, 211, 211, 0.711), #334155);
-    background-clip: text;
-    --webkit-background-clip: text;
-    color: transparent;
+    color: color.$button-color;
     text-align: center;
     font-size: 1.25rem;
 
