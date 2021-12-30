@@ -4,7 +4,7 @@
 
 .productFilter {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
   padding: 1vw 0.5vw;
   line-height: 30px;
@@ -19,7 +19,7 @@
     flex-direction: column;
     justify-content: space-between;
     height: 30px;
-    margin-right: 70px;
+    margin-left: 120px;
     padding: 5px 0;
     cursor: pointer;
 
