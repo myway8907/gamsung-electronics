@@ -30,8 +30,10 @@ const ServiceCard = () => {
         </Navigator>
       </Carousel>
       <Info
+        pos="absolute"
+        bottom="5%"
         title="갤럭시 온라인 체험"
-        subtitle="나만의 공간에서 즐기는 와이드 스크린"
+        description="나만의 공간에서 즐기는 와이드 스크린"
       >
         <Button text="더 알아보기" />
       </Info>

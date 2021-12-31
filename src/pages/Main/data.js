@@ -116,3 +116,55 @@ export const STORY = [
     story: "04 #승리를 위한 완벽한 준비",
   },
 ];
+
+export const TREND = [
+  {
+    id: 1,
+    header: "EXPERIANCE",
+    title: "갤럭시 스튜디오",
+    description: "갤럭시 Z 폴드3 | 플립3 부터 갤럭시 워치4, 버즈2까지",
+    trendImgUrl: "./images/Main/Hero/fakeImage1.jpg",
+  },
+  {
+    id: 2,
+    header: "EVENT",
+    title: "팀 상성 룩북: BEHIND THE SCENE",
+    description:
+      "집 안에서 경험하는 놀랍도록 편리한 모든 순간을 팀 삼성 룩북으로 만나보세요.",
+    trendImgUrl: "./images/Main/Hero/fakeImage2.jpg",
+  },
+  {
+    id: 3,
+    header: "VIDEO",
+    title: "갤럭시 리얼 마케팅 쇼",
+    description:
+      "갤럭시 Z 폴드3 | 플립3를 위해 찐팬들이 뭉쳤다 미션을 수행해 나가는 최정예 프로덕션 Z의 활약을 만나보세요",
+    trendImgUrl: "./images/Main/Hero/fakeImage3.jpg",
+  },
+  {
+    id: 4,
+    header: "VIDEO",
+    title: "한눈에 보는 제품 영상",
+    description:
+      "어떤 영상을 찾으세요? 다양한 영상을 한눈에 보고 마음에 드는 제품을 골라보세요",
+    trendImgUrl: "./images/Main/Hero/fakeImage4.jpg",
+  },
+  {
+    id: 5,
+    header: "EXPERIENCE",
+    title: "디지털플라자 VR 스토어",
+    description:
+      "언제 어디서나 3D VR 스토어에서 제품 정보부터 상담까지 편하게 체험해 보세요",
+
+    trendImgUrl: "./images/Main/Hero/fakeImage5.jpg",
+  },
+  {
+    id: 6,
+    header: "SUPPORT",
+    title: "매장 상담 예약",
+    description:
+      "맞춤 상담을 예약하고 삼성전자가 제안하는 라이프스타일을 직접 체험해보세요",
+
+    trendImgUrl: "./images/Main/Hero/fakeImage6.jpg",
+  },
+];

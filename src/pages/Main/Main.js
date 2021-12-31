@@ -3,6 +3,7 @@ import MainCarousel from "./MainCarousel/MainCarousel";
 import Services from "./Services/Services";
 import PreviewTab from "./PreviewTab/PreviewTab";
 import Story from "./Story/Story";
+import Trend from "./Trend/Trend";
 import "./Main.scss";
 
 const Main = () => {
@@ -12,6 +13,7 @@ const Main = () => {
       <Services />
       <PreviewTab />
       <Story />
+      <Trend />
     </main>
   );
 };
