@@ -23,7 +23,9 @@ const MenuCategory = ({ type, content, image }) => {
             })}
           </ul>
           <div className="nav-menu-img">
-            <img alt={type} src={image} />
+            <div>
+              <img alt={type} src={image} />
+            </div>
           </div>
         </>
       )}

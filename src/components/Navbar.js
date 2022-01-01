@@ -1,14 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { AiOutlineSearch } from "react-icons/ai";
-import { BiUser } from "react-icons/bi";
 import { BsCart2 } from "react-icons/bs";
 import NavMenu from "./NavMenu/NavMenu";
-import UserMenu from "./NavMenu/UserMenu";
+import UserMenu from "./UserMenu/UserMenu";
 import "./Navbar.scss";
 
 const Navbar = () => {
-  const [isHover, setIsHover] = useState(false);
-
   return (
     <header className="header">
       <div className="header-inner">
@@ -25,27 +22,15 @@ const Navbar = () => {
               );
             })}
           </ul>
-          <ul className="nav-icons">
+          <div className="nav-icons">
             <i>
               <AiOutlineSearch />
             </i>
             <i>
               <BsCart2 />
             </i>
-            <i
-              onMouseOver={() => setIsHover(true)}
-              onMouseLeave={() => setIsHover(false)}
-            >
-              <BiUser />
-              {isHover && (
-                <ul className="nav-icons-user">
-                  {USER_MENU.map(element => {
-                    return <UserMenu key={element.menu} menu={element.menu} />;
-                  })}
-                </ul>
-              )}
-            </i>
-          </ul>
+            <UserMenu />
+          </div>
         </nav>
       </div>
     </header>
@@ -110,21 +95,6 @@ const NAVMENU = [
         image: "asd",
       },
     ],
-  },
-];
-
-const USER_MENU = [
-  {
-    menu: "로그인",
-  },
-  {
-    menu: "마이페이지",
-  },
-  {
-    menu: "구매내역",
-  },
-  {
-    menu: "도움말",
   },
 ];
 

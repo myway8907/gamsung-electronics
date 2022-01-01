@@ -28,28 +28,7 @@
           padding: 7px;
           margin: 0px 5px;
         }
-
-        &-user {
-          position: absolute;
-          width: 70%;
-          left: 80px;
-          text-align: center;
-          font-size: 14px;
-          animation: slideUser 1s;
-        }
       }
     }
-  }
-}
-
-@keyframes slideUser {
-  from {
-    transform: translateY(-20px);
-    opacity: 0;
-  }
-
-  to {
-    transform: translateY(0);
-    opacity: 1;
   }
 }
