@@ -1,7 +1,7 @@
 import React from "react";
-import { AiOutlineSearch } from "react-icons/ai";
 import { BsCart2 } from "react-icons/bs";
 import NavMenu from "./NavMenu/NavMenu";
+import NavSearch from "./NavSearch/NavSearch";
 import UserMenu from "./UserMenu/UserMenu";
 import "./Navbar.scss";
 
@@ -23,9 +23,7 @@ const Navbar = () => {
             })}
           </ul>
           <div className="nav-icons">
-            <i>
-              <AiOutlineSearch />
-            </i>
+            <NavSearch />
             <i>
               <BsCart2 />
             </i>

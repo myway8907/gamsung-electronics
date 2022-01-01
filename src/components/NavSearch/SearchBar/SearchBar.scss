@@ -1,0 +1,43 @@
+.nav-searchbar-wrap {
+  position: absolute;
+  top: -20px;
+  right: -150px;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(100, 100, 100, 0.1);
+
+  .nav-searchbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100px;
+    background-color: rgb(253, 253, 253);
+    text-align: center;
+
+    > input {
+      width: 35%;
+      height: 54px;
+      margin-top: 23px;
+      padding: 0 40px;
+      border: 1px solid rgb(200, 200, 200);
+      border-radius: 30px;
+      background-color: rgb(253, 253, 253);
+      font-size: 16px;
+    }
+
+    &-searchicon {
+      position: absolute;
+      top: 30px;
+      right: 34%;
+    }
+
+    &-closeicon {
+      position: absolute;
+      top: 110px;
+      right: 50%;
+      font-size: 40px;
+      cursor: pointer;
+    }
+  }
+}
