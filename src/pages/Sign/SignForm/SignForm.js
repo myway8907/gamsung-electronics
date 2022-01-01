@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import Input from "./Input/Input";
-import "./form.scss";
+import SignInput from "./SignInput/SignInput";
+import "./SignForm.scss";
 
-const Form = ({ signCheck }) => {
+const SignForm = ({ signCheck }) => {
   const [signInfo, setSignInfo] = useState({ email: "", password: "" });
   const [signupInfo, setSignupInfo] = useState({
     passwordCheck: "",
@@ -157,7 +157,7 @@ const Form = ({ signCheck }) => {
     <form autoComplete="off" className="sign-form">
       {SIGN_CHECK.map(element => {
         return (
-          <Input
+          <SignInput
             key={element.name}
             name={element.name}
             type={element.type}
@@ -170,7 +170,7 @@ const Form = ({ signCheck }) => {
         {isSign &&
           SIGNUP_BIRTH.map(element => {
             return (
-              <Input
+              <SignInput
                 key={element.name}
                 name={element.name}
                 type={element.type}
@@ -194,4 +194,4 @@ const Form = ({ signCheck }) => {
   );
 };
 
-export default Form;
+export default SignForm;

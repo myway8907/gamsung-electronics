@@ -1,7 +1,7 @@
 import React from "react";
-import "./input.scss";
+import "./SignInput.scss";
 
-const Input = ({ name, type, text, onchange }) => {
+const SignInput = ({ name, type, text, onchange }) => {
   return (
     <label>
       <input name={name} type={type} placeholder={text} onChange={onchange} />
@@ -10,4 +10,4 @@ const Input = ({ name, type, text, onchange }) => {
   );
 };
 
-export default Input;
+export default SignInput;

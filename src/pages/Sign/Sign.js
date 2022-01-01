@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import FormLayout from "./Form/FormLayout";
+import SignFormLayout from "./SignForm/SignFormLayout";
 import AuthHeader from "../../components/AuthHeader";
 import "./sign.scss";
 
@@ -12,7 +12,7 @@ const Sign = () => {
     <>
       <AuthHeader />
       <main className="sign">
-        <FormLayout
+        <SignFormLayout
           text={text}
           isSubtext={isSubtext}
           signCheck={signCheck}
