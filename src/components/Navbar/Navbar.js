@@ -1,7 +1,7 @@
 import React from "react";
-import { BsCart2 } from "react-icons/bs";
 import NavMenu from "./NavMenu/NavMenu";
 import NavSearch from "./NavSearch/NavSearch";
+import NavCart from "./NavCart/NavCart";
 import UserMenu from "./UserMenu/UserMenu";
 import "./Navbar.scss";
 
@@ -12,7 +12,7 @@ const Navbar = () => {
         <h1>GAMSUNG</h1>
         <nav className="nav">
           <ul className="nav-menulist">
-            {NAVMENU.map(element => {
+            {NAV_MENU_DATA.map(element => {
               return (
                 <NavMenu
                   key={element.title}
@@ -24,9 +24,7 @@ const Navbar = () => {
           </ul>
           <div className="nav-icons">
             <NavSearch />
-            <i>
-              <BsCart2 />
-            </i>
+            <NavCart />
             <UserMenu />
           </div>
         </nav>
@@ -35,7 +33,7 @@ const Navbar = () => {
   );
 };
 
-const NAVMENU = [
+const NAV_MENU_DATA = [
   {
     title: "모바일",
     category: [

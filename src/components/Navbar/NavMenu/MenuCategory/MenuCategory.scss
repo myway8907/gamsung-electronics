@@ -7,7 +7,7 @@
   padding: 10px;
   margin-bottom: 20px;
 
-  i {
+  > i {
     position: absolute;
     left: 370px;
     font-size: 30px;
@@ -39,7 +39,7 @@
       border-radius: 20px;
       overflow: hidden;
 
-      img {
+      > img {
         width: 400px;
         height: 400px;
         border-radius: 20px;
