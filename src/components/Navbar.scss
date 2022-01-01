@@ -1,10 +1,8 @@
-@use "../styles/color" as color;
 @use "../styles/mixin" as mixin;
 
 .header {
-  position: absolute;
-  width: 100%;
-  height: 80px;
+  height: 70px;
+  margin: 10px;
   font-weight: 500;
 
   &-inner {
@@ -16,55 +14,42 @@
       justify-content: space-between;
       align-items: center;
       width: 60%;
-      font-size: 14px;
+      font-size: 16px;
 
       &-menulist {
         @include mixin.flex;
       }
 
-      &-menu {
-        // height: 70vh;
-        padding: 10px;
+      &-icons {
+        position: relative;
+        font-size: 30px;
 
-        &-title {
-          padding: 5px;
-
-          &:hover {
-            background-color: color.$button-color;
-            border-radius: 35px;
-            color: color.$bg-primary;
-          }
+        > i {
+          padding: 7px;
+          margin: 0px 5px;
         }
 
-        &-category {
+        &-user {
           position: absolute;
-          left: 0;
-          width: 100%;
-          // opacity: 0;
-          // pointer-events: none;
-          transition-duration: 0.5s;
-
-          .nav-menu-device {
-            position: absolute;
-            left: 100px;
-            opacity: 0;
-            pointer-events: none;
-            transform: translateX(0px);
-            transition: all 0.5s;
-          }
-
-          // .menu-active {
-          //   transform: translateX(20px);
-          //   opacity: 1;
-          //   pointer-events: auto;
-          // }
-        }
-        > .active {
-          transform: translateY(20px);
-          opacity: 1;
-          pointer-events: auto;
+          width: 70%;
+          left: 80px;
+          text-align: center;
+          font-size: 14px;
+          animation: slideUser 1s;
         }
       }
     }
+  }
+}
+
+@keyframes slideUser {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
 }

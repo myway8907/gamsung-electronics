@@ -1,8 +1,9 @@
 import React from "react";
+import "./Device.scss";
 
 const Device = ({ deviceType }) => {
   return (
-    <li>
+    <li className="nav-menu-item">
       <span>{deviceType}</span>
     </li>
   );

@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import MenuCategory from "./MenuCategory/MenuCategory";
+import "./NavMenu.scss";
 
 const NavMenu = ({ title, category }) => {
   const [isListHover, setIsListHover] = useState(false);
-  console.log(isListHover);
+
   return (
     <li
       className="nav-menu"
@@ -11,18 +12,20 @@ const NavMenu = ({ title, category }) => {
       onMouseLeave={() => setIsListHover(false)}
     >
       <span className="nav-menu-title">{title}</span>
-      <ul className="nav-menu-category">
-        {isListHover &&
-          category.map(element => {
+      {isListHover && (
+        <ul className="nav-menu-category">
+          {category.map(element => {
             return (
               <MenuCategory
                 key={element.type}
                 type={element.type}
                 content={element.device}
+                image={element.image}
               />
             );
           })}
-      </ul>
+        </ul>
+      )}
     </li>
   );
 };

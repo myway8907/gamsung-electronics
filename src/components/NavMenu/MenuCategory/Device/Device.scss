@@ -1,0 +1,13 @@
+@use "/src/styles/color" as color;
+
+.nav-menu-item {
+  padding: 10px;
+  margin-bottom: 20px;
+
+  &:hover {
+    font-weight: bold;
+  }
+  &:hover::after {
+    position: absolute;
+  }
+}

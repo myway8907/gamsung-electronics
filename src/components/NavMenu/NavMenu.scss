@@ -1,0 +1,38 @@
+@use "/src/styles/color" as color;
+
+.nav-menu {
+  padding: 10px;
+
+  &-title {
+    padding: 10px;
+    &:hover {
+      background-color: color.$button-color;
+      border-radius: 35px;
+      color: color.$bg-primary;
+    }
+  }
+
+  &-category {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 650px;
+    padding: 50px 150px;
+    font-size: 21px;
+    animation: slideNav 1s;
+  }
+}
+
+@keyframes slideNav {
+  from {
+    height: 0;
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+
+  to {
+    height: 650px;
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
