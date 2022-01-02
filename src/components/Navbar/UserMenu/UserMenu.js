@@ -15,7 +15,13 @@ const UserMenu = () => {
       {isHover && (
         <ul className="nav-icons-user">
           {USER_MENU.map(element => {
-            return <UserMenuItem key={element.menu} menu={element.menu} />;
+            return (
+              <UserMenuItem
+                key={element.menu}
+                menu={element.menu}
+                link={element.link}
+              />
+            );
           })}
         </ul>
       )}
@@ -26,15 +32,19 @@ const UserMenu = () => {
 const USER_MENU = [
   {
     menu: "로그인",
+    link: "/signin",
   },
   {
     menu: "마이페이지",
+    link: "/signin",
   },
   {
     menu: "구매내역",
+    link: "/signin",
   },
   {
     menu: "도움말",
+    link: "/signin",
   },
 ];
 
