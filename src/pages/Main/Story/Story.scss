@@ -1,53 +1,43 @@
-@use "../../../styles/color" as color;
-@use "../../../styles/mixin" as mixin;
-
 .main-story {
   display: grid;
-  grid-template-columns: 1fr 1.5fr 1fr;
-  gap: 1em;
+  grid-template-columns: 1fr 1.75fr 1fr;
   place-items: center;
   padding: 2rem 1rem 4rem;
 
-  .story-header {
-    h2 {
-      font-size: 2.75rem;
-      text-align: left;
-    }
+  h2 {
+    margin: 0 auto 0.75em 0;
+    font-size: 2.25rem;
+  }
 
-    p {
-      margin-top: 1.5em;
-      font-size: 0.875rem;
-      line-height: 1.2;
-    }
+  p {
+    font-size: 1rem;
   }
 
   .story-images {
-    @include mixin.flex;
-    overflow: hidden;
-    transition: all 1s ease-in;
+    position: relative;
 
     img {
-      min-width: 100%;
-      min-width: 35rem;
+      width: 35rem;
       height: 25rem;
       border-radius: 1rem;
+
+      &.hidden {
+        position: absolute;
+        top: 0;
+        z-index: -1;
+      }
     }
   }
 
   .story-lists {
     .story {
-      padding: 0.5em 1.5em;
-      border-radius: 1.75em;
-      background: linear-gradient(to right, #96999e, rgba(211, 211, 211, 0.711))
-        no-repeat left / 0%;
+      padding: 0.5em 0;
+      background: linear-gradient(to right, red, lightgray) no-repeat left / 0%;
+      background-clip: text;
+      -webkit-background-clip: text;
       font-size: 1rem;
       font-weight: bold;
-      transition: background 400ms ease-in, color 750ms ease-out;
-
-      &:hover {
-        background-size: 100%;
-        color: color.$bg-gray;
-      }
+      transition: background 350ms ease-in, color 250ms ease-in;
 
       &::after {
         content: "더 알아보기";
@@ -55,16 +45,18 @@
         margin-left: 2.25em;
         font-size: 0.675rem;
         font-weight: light;
-        text-decoration: underline;
+        cursor: pointer;
         opacity: 0;
         transition: opacity 200ms ease-in;
       }
 
+      &:hover {
+        background-size: 100%;
+        color: transparent;
+      }
+
       &:hover::after {
         opacity: 1;
-      }
-      & + & {
-        margin-top: 0.25em;
       }
     }
   }

@@ -1,33 +1,13 @@
-@use "../../../styles/mixin" as mixin;
-
 .services {
+  position: relative;
   min-height: 100vh;
   padding: 2rem 5rem;
-
-  &-tab {
-    @include mixin.flex($justify: center);
-    gap: 2em;
-    font-size: 1rem;
-    font-weight: bold;
-
-    .service-name {
-      position: relative;
-
-      &:first-child::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        bottom: -20%;
-        border-bottom: 2px solid black;
-      }
-    }
-  }
 
   &-cards {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 1fr 1fr;
     gap: 2em;
-    margin-top: 2em;
+    margin-top: 3em;
   }
 }

@@ -2,6 +2,7 @@ import "./ServiceCard.scss";
 
 const ServiceCard = ({ card }) => {
   const { icon: Icon, title, description, bgColor } = card;
+
   return (
     <div className="service-card">
       <Icon size={60} style={{ "--bgColor": bgColor }} />

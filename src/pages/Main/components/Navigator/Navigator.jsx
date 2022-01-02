@@ -4,7 +4,6 @@ const CURRENT = "current";
 
 const Navigator = props => {
   const { currIdx, tabs, setCurrIdx, playing, top, color, children } = props;
-
   const navigatorStyle = {
     "--top": top,
     "--color": color,

@@ -29,6 +29,7 @@ const ServiceCard = () => {
           <h2>모바일 & Tablet</h2>
         </Navigator>
       </Carousel>
+
       <Info
         pos="absolute"
         bottom="5%"

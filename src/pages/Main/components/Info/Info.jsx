@@ -1,8 +1,11 @@
 import "./Info.scss";
 
-const Info = ({ header, title, description, pos, bottom, children }) => {
+const Info = ({ header, title, description, size, pos, bottom, children }) => {
   return (
-    <section className="main-info" style={{ "--pos": pos, "--bottom": bottom }}>
+    <section
+      className="main-info"
+      style={{ "--pos": pos, "--bottom": bottom, "--size": size }}
+    >
       <p className="main-info-header">{header}</p>
       <h2 className="main-info-title">{title}</h2>
       <p className="main-info-description">{description}</p>

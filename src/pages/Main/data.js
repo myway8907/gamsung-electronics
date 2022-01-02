@@ -97,22 +97,22 @@ export const TABS = [
 export const STORY = [
   {
     id: 1,
-    url: ".images/Main/Story/Story1.jpg",
+    url: "./images/Main/Story/Story1.jpg",
     story: "01 삼성 갤럭시와 메종 키츠네 여우의 만남",
   },
   {
     id: 2,
-    url: ".images/Main/Story/Story2.jpg",
+    url: "./images/Main/Story/Story2.jpg",
     story: "02 #함께 만드는 더 나은 미래",
   },
   {
     id: 3,
-    url: ".images/Main/Story/Story3.jpg",
+    url: "./images/Main/Story/Story3.jpg",
     story: "03 #우리가 집에서 말하는 새로운 방법",
   },
   {
     id: 4,
-    url: ".images/Main/Story/Story4.jpg",
+    url: "./images/Main/Story/Story4.jpg",
     story: "04 #승리를 위한 완벽한 준비",
   },
 ];
@@ -120,7 +120,7 @@ export const STORY = [
 export const TREND = [
   {
     id: 1,
-    header: "EXPERIANCE",
+    header: "EXPERIENCE",
     title: "갤럭시 스튜디오",
     description: "갤럭시 Z 폴드3 | 플립3 부터 갤럭시 워치4, 버즈2까지",
     trendImgUrl: "./images/Main/Hero/fakeImage1.jpg",

@@ -13,7 +13,7 @@
   &-tabs {
     @include mixin.flex($justify: center);
     gap: 1em;
-    font-size: 1rem;
+    font-size: 0.975rem;
     font-weight: bold;
 
     .tab {
@@ -33,15 +33,11 @@
       }
 
       &::after {
-        content: "";
         right: 100%;
-        position: absolute;
         background-color: color.$bg-primary;
-        opacity: 0;
       }
 
       &.playing::after {
-        opacity: 1;
         animation: videoOn 2.5s ease-in-out;
       }
 
