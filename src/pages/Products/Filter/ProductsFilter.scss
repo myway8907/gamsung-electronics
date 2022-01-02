@@ -22,6 +22,7 @@
     margin-left: 120px;
     padding: 5px 0;
     cursor: pointer;
+    background-color: cyan;
 
     .plus-button {
       height: 4px;
@@ -33,9 +34,9 @@
     }
   }
 
-  .expand-input {
-    display: none;
-  }
+  // .expand-input {
+  //   display: none;
+  // }
 
   .filtering-list {
     height: 0;
