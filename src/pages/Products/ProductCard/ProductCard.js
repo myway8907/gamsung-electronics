@@ -1,10 +1,16 @@
 import React from "react";
 import "./ProductCard.scss";
 
-const ProductCard = () => {
+const ProductCard = ({
+  detail_images,
+  name,
+  serial_number,
+  price,
+  storage,
+}) => {
   return (
     <div className="productCard">
-      <img className="product-image" src="images/Products/galaxy-s20.jpg" />
+      <img className="product-image" src={detail_images} alt="product" />
       {/* 나중에 색상으로 사진 바꾸는 경우 대비 */}
       {/* <ul className="product-color">
         <li>
@@ -27,22 +33,22 @@ const ProductCard = () => {
         </li>
       </ul> */}
       <div className="product-color-container">
-        {/* <div className="product-color-collection"> */}
-        <span className="product-color-selector"></span>
-        <span className="product-color-selector"></span>
-        <span className="product-color-selector"></span>
-        {/* </div> */}
+        <span className="product-color-selector" />
+        <span className="product-color-selector" />
+        <span className="product-color-selector" />
       </div>
       <div className="product-storage">
-        <div className="product-storage-selector">256GB</div>
-        <div className="product-storage-selector">512GB</div>
+        <div className="product-storage-selector">
+          {storage}
+          <span>GB</span>
+        </div>
       </div>
       <div className="product-title">
-        <span className="product-title-text">갤럭시 Z 폴드3 5G 자급제</span>
-        <span className="product-model">SM-F926NZKAKOO</span>
+        <span className="product-title-text">{name}</span>
+        <span className="product-model">{serial_number}</span>
       </div>
       <div className="product-price">
-        <span className="price-number">1,998,700</span>
+        <span className="price-number">{price}</span>
         <span className="price-currency">원</span>
       </div>
       <div className="product-purchase">

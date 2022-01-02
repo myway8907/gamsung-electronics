@@ -6,24 +6,24 @@ const ProductsFilter = () => {
     <div className="productFilter">
       <span className="product-type-filter">유형</span>
       <input className="expand-input" id="expand-button" type="checkbox" />
-      <label for="expand-button">
+      <label htmlfor="expand-button">
         <div className="expand-button-container">
-          <div className="plus-button 1"></div>
-          <div className="plus-button 2"></div>
-          <div className="plus-button 3"></div>
+          <div className="plus-button 1" />
+          <div className="plus-button 2" />
+          <div className="plus-button 3" />
         </div>
       </label>
       <div className="filtering-list">
         <li>
-          <input type="checkbox"></input>
+          <input type="checkbox" />
           <span>갤럭시 S</span>
         </li>
         <li>
-          <input type="checkbox"></input>
+          <input type="checkbox" />
           <span>갤럭시 Z</span>
         </li>
         <li>
-          <input type="checkbox"></input>
+          <input type="checkbox" />
           <span>갤럭시 Z</span>
         </li>
       </div>
