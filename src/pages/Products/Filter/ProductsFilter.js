@@ -1,7 +1,23 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import FilterElement from "./FilterElement/FilterElement";
 import "./ProductsFilter.scss";
 
-const ProductsFilter = () => {
+const ProductsFilter = ({ products }) => {
+  const [productType, setType] = useState([]);
+
+  // const types = [];
+
+  // const makeTypeList = para => {
+  //   if (para.length !== 0) {
+  //     for (let i = 0; i < para.length; i++) {
+  //       types.includes(para[i].subcategory)
+  //         ? console.log(`It's alread in it`)
+  //         : types.push(para[i].subcategory);
+  //     }
+  //   }
+  // };
+  // useEffect(makeTypeList(products));
+
   return (
     <div className="productFilter">
       <span className="product-type-filter">유형</span>
@@ -13,20 +29,14 @@ const ProductsFilter = () => {
           <div className="plus-button 3" />
         </div>
       </label>
-      <div className="filtering-list">
-        <li>
-          <input type="checkbox" />
-          <span>갤럭시 S</span>
-        </li>
-        <li>
-          <input type="checkbox" />
-          <span>갤럭시 Z</span>
-        </li>
-        <li>
-          <input type="checkbox" />
-          <span>갤럭시 Z</span>
-        </li>
-      </div>
+      <ul className="filtering-list">
+        {products.map(product => (
+          <FilterElement
+            key={product.serial_number}
+            subcategory={product.subcategory}
+          />
+        ))}
+      </ul>
     </div>
   );
 };

@@ -11,27 +11,6 @@ const ProductCard = ({
   return (
     <div className="productCard">
       <img className="product-image" src={detail_images} alt="product" />
-      {/* 나중에 색상으로 사진 바꾸는 경우 대비 */}
-      {/* <ul className="product-color">
-        <li>
-          <input></input>
-          <label>
-            <span></span>
-          </label>
-        </li>
-        <li>
-          <input></input>
-          <label>
-            <span></span>
-          </label>
-        </li>
-        <li>
-          <input></input>
-          <label>
-            <span></span>
-          </label>
-        </li>
-      </ul> */}
       <div className="product-color-container">
         <span className="product-color-selector" />
         <span className="product-color-selector" />

@@ -5,6 +5,7 @@ import ProductsFilter from "./Filter/ProductsFilter";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
+  const [filter, setFilter] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:3000/data/Products/mockData.json", {
@@ -16,6 +17,8 @@ const Products = () => {
       });
   }, []);
 
+  useEffect(() => {});
+
   return (
     <div className="products">
       <div className="top-image-container" />
@@ -26,7 +29,7 @@ const Products = () => {
       </div>
       <main className="main-container">
         <div className="aside-filter-container">
-          <ProductsFilter />
+          <ProductsFilter products={products} />
         </div>
         <div className="product-list-container">
           {products.map(
