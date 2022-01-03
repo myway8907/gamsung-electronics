@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./auth_header.scss";
+import "./AuthHeader.scss";
 
 const AuthHeader = () => {
   return (

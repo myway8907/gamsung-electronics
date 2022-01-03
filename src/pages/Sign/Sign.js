@@ -1,7 +1,7 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import SignFormLayout from "./SignForm/SignFormLayout";
-import AuthHeader from "../../components/AuthHeader";
+import AuthHeader from "../../components/AuthHeader/AuthHeader";
 import "./sign.scss";
 
 const Sign = () => {
