@@ -5,10 +5,10 @@ import "./Products.scss";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
-  const [filter, setFilter] = useState([]);
+  const [filterList, setFilter] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/data/Products/mockData.json", {
+    fetch("./data/Products/mockData.json", {
       method: "GET",
     })
       .then(response => response.json())
@@ -17,7 +17,17 @@ const Products = () => {
       });
   }, []);
 
-  useEffect(() => {});
+  useEffect(() => {
+    let arr = [];
+
+    products.forEach(({ subcategory }) => {
+      if (!arr.includes(subcategory)) {
+        arr = [...arr, subcategory];
+      }
+    });
+
+    setFilter(arr);
+  }, [products]);
 
   return (
     <div className="products">
@@ -29,7 +39,7 @@ const Products = () => {
       </div>
       <main className="main-container">
         <div className="aside-filter-container">
-          <ProductsFilter products={products} />
+          <ProductsFilter filterList={filterList} />
         </div>
         <div className="product-list-container">
           {products.map(
