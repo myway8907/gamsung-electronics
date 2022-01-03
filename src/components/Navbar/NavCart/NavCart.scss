@@ -6,10 +6,12 @@
   right: 0;
   top: 80px;
   padding: 25px 18px;
+  background-color: color.$bg-primary;
   border: 1px solid rgb(199, 199, 199);
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
   text-align: center;
+  z-index: 100;
 
   > a {
     display: inline-block;

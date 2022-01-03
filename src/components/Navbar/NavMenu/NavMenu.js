@@ -14,13 +14,13 @@ const NavMenu = ({ title, category }) => {
       <span className="nav-menu-title">{title}</span>
       {isListHover && (
         <ul className="nav-menu-category">
-          {category.map(element => {
+          {category.map(categoryItem => {
             return (
               <MenuCategory
-                key={element.type}
-                type={element.type}
-                content={element.device}
-                image={element.image}
+                key={categoryItem.type}
+                type={categoryItem.type}
+                content={categoryItem.device}
+                image={categoryItem.image}
               />
             );
           })}

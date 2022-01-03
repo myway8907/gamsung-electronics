@@ -8,7 +8,7 @@ const NavCart = () => {
   const [isClick, setIsClick] = useState(false);
 
   return (
-    <i onClick={setIsClick(preIsClick => !preIsClick)}>
+    <i onClick={() => setIsClick(preIsClick => !preIsClick)}>
       <BsCart2 />
       {isClick && (
         <ul className="nav-cart-items">
