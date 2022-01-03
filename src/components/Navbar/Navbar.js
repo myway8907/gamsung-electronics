@@ -12,12 +12,12 @@ const Navbar = () => {
         <h1>GAMSUNG</h1>
         <nav className="nav">
           <ul className="nav-menulist">
-            {NAV_MENU_DATA.map(element => {
+            {NAV_MENU_DATA.map(menu => {
               return (
                 <NavMenu
-                  key={element.title}
-                  title={element.title}
-                  category={element.category}
+                  key={menu.title}
+                  title={menu.title}
+                  category={menu.category}
                 />
               );
             })}

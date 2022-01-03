@@ -8,16 +8,16 @@ const NavCart = () => {
   const [isClick, setIsClick] = useState(false);
 
   return (
-    <i onClick={() => setIsClick(!isClick)}>
+    <i onClick={setIsClick(preIsClick => !preIsClick)}>
       <BsCart2 />
       {isClick && (
         <ul className="nav-cart-items">
-          {CART_ITEMS.map(element => (
+          {CART_ITEMS.map(cartItem => (
             <NavCartItem
-              key={element.name}
-              name={element.name}
-              price={element.price}
-              image={element.image}
+              key={cartItem.name}
+              name={cartItem.name}
+              price={cartItem.price}
+              image={cartItem.image}
             />
           ))}
           <Link to="/cart">장바구니 보기</Link>

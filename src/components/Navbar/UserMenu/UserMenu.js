@@ -14,13 +14,9 @@ const UserMenu = () => {
       <BiUser />
       {isHover && (
         <ul className="nav-icons-user">
-          {USER_MENU.map(element => {
+          {USER_MENU.map(item => {
             return (
-              <UserMenuItem
-                key={element.menu}
-                menu={element.menu}
-                link={element.link}
-              />
+              <UserMenuItem key={item.menu} menu={item.menu} link={item.link} />
             );
           })}
         </ul>
