@@ -24,9 +24,9 @@ const ProductsFilter = ({ products }) => {
       <input className="expand-input" id="expand-button" type="checkbox" />
       <label htmlfor="expand-button">
         <div className="expand-button-container">
-          <div className="plus-button 1" />
-          <div className="plus-button 2" />
-          <div className="plus-button 3" />
+          <div className="common-button first-button-element" />
+          <div className="common-button second-button-element" />
+          <div className="common-button third-button-element" />
         </div>
       </label>
       <ul className="filtering-list">

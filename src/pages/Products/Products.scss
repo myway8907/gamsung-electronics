@@ -1,5 +1,3 @@
-@use "src/styles/common.scss";
-@use "src/styles/reset.scss";
 @use "src/styles/_mixin.scss";
 @use "src/styles/_color.scss";
 
@@ -10,6 +8,7 @@
     background-size: 600px; //임시 이미지
     background-position: 50% 50%; //임시 이미지
   }
+
   .buffer-layer {
     width: 100%;
     height: 43px;

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import "./Products.scss";
-import ProductCard from "./ProductCard/ProductCard";
 import ProductsFilter from "./Filter/ProductsFilter";
+import ProductCard from "./ProductCard/ProductCard";
+import "./Products.scss";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
