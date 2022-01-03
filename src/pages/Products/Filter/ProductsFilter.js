@@ -27,8 +27,4 @@ const ProductsFilter = () => {
           <span>갤럭시 Z</span>
         </li>
       </div>
-    </div>
-  );
-};
-
-export default ProductsFilter;
+uctsFilter;
