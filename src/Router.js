@@ -4,6 +4,7 @@ import Main from "./pages/Main/Main";
 import Sign from "./pages/Sign/Sign";
 import Products from "./pages/Products/Products";
 import Cart from "./pages/Cart/Cart";
+import Footer from "./components/Footer/Footer";
 
 const Router = () => {
   return (
@@ -15,6 +16,7 @@ const Router = () => {
         <Route path="/products" element={<Products />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 };
