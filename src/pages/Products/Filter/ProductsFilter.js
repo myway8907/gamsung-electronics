@@ -8,7 +8,7 @@ const ProductsFilter = () => {
       <input className="expand-input" id="expand-button" type="checkbox" />
       <label htmlfor="expand-button">
         <div className="expand-button-container">
-          <div className="plus-button 1" />
+          <div className="common-button first-plus-button" />
           <div className="plus-button 2" />
           <div className="plus-button 3" />
         </div>
@@ -27,4 +27,8 @@ const ProductsFilter = () => {
           <span>갤럭시 Z</span>
         </li>
       </div>
-uctsFilter;
+    </div>
+  );
+};
+
+export default ProductsFilter;
