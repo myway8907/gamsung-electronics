@@ -20,7 +20,6 @@ const ProductsFilter = ({ changeCheckStatus, filterName }) => {
             key={idx}
             changeCheckStatus={changeCheckStatus}
             subcategory={subcategory}
-            // getList={getList}
           />
         ))}
       </ul>

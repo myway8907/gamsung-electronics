@@ -5,9 +5,8 @@ import "./Products.scss";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
-  const [filterList, setFilterList] = useState({}); //child 전달
+  const [filterList, setFilterList] = useState({});
 
-  //상품 전체 데이터 가져오기
   useEffect(() => {
     fetch("./data/Products/mockData.json", {
       method: "GET",
@@ -23,7 +22,7 @@ const Products = () => {
       const emptyObj = {};
       products.forEach(({ subcategory }) => {
         if (!Object.keys(emptyObj).includes(subcategory)) {
-          emptyObj[subcategory] = false; //계산된 속성명!!!!!!!
+          emptyObj[subcategory] = false;
         }
       });
       setFilterList(emptyObj);
