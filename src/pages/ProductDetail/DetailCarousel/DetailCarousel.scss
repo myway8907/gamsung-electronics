@@ -1,0 +1,38 @@
+@use "../../../styles/mixin" as mixin;
+
+.detail-carousel {
+  position: relative;
+  max-width: 37.5rem;
+  overflow: hidden;
+
+  .detail-navigator {
+    position: absolute;
+    @include mixin.flex;
+    flex-direction: column;
+    z-index: 10;
+
+    svg {
+      font-size: 1.25rem;
+      cursor: pointer;
+    }
+
+    img {
+      display: block;
+      width: 5rem;
+      margin: 1em 0;
+      border-radius: 1.5em;
+      cursor: pointer;
+
+      &.current {
+        border: 2px solid cornflowerblue;
+      }
+    }
+  }
+
+  .detail-slider {
+    @include mixin.flex;
+    gap: 1em;
+    transform: translateX(calc(var(--currIdx) * calc(-100%)));
+    transition: all 0.5s ease-in;
+  }
+}

@@ -1,0 +1,29 @@
+@use "../../../../styles/mixin" as mixin;
+
+.detail-dropdown {
+  position: relative;
+  margin: 1rem 0;
+
+  .dropdown-header {
+    @include mixin.flex;
+
+    h3 {
+      display: inline-block;
+      font-weight: 400;
+    }
+
+    span {
+      padding: 0 20%;
+      font-size: 1.125rem;
+      font-weight: bold;
+    }
+
+    svg {
+      position: absolute;
+      right: 1em;
+      font-size: 1.25em;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  }
+}

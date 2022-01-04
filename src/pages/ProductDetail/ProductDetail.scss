@@ -1,0 +1,11 @@
+@use "../../styles/color" as color;
+@use "../../styles/mixin" as mixin;
+
+.product-detail {
+  @include mixin.flex($justify: space-around);
+  gap: 1rem;
+  min-height: 100vh;
+  padding: 2rem;
+  background-color: color.$bg-gray;
+  font-size: 0.75rem;
+}

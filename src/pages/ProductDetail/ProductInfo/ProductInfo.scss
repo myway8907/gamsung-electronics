@@ -1,0 +1,63 @@
+@use "../../../styles/mixin" as mixin;
+@use "../../../styles/color" as color;
+
+.product-info {
+  width: 28rem;
+  padding: 2rem;
+  border-radius: 2rem;
+  box-shadow: 0 0 5px 0 lightgray;
+  font-size: 0.75rem;
+
+  svg {
+    font-size: 1.25rem;
+  }
+
+  .info-header {
+    @include mixin.flex;
+    margin-bottom: 0.5rem;
+
+    .sale {
+      margin-right: auto;
+      color: color.$color-primary;
+      font-weight: bold;
+    }
+  }
+
+  .price {
+    .bold {
+      font-weight: bold;
+    }
+
+    &-info {
+      @include mixin.flex($justify: space-between);
+    }
+
+    &-title {
+      font-size: 0.975rem;
+    }
+
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+
+  .detail-coupon {
+    @include mixin.flex($justify: space-between);
+    margin: 1em 0;
+
+    span {
+      color: color.$color-primary;
+      font-weight: bold;
+    }
+  }
+
+  .detail-dropdown {
+    .circle {
+      display: inline-block;
+      margin-right: 1em;
+      width: 1rem;
+      height: 1rem;
+      border-radius: 50%;
+      background-color: var(--bg, #000);
+    }
+  }
+}
