@@ -1,14 +1,17 @@
 @use "../../../styles/mixin" as mixin;
+@use "../../../styles/color" as color;
 
 .detail-carousel {
   position: relative;
   max-width: 37.5rem;
-  overflow: hidden;
 
   .detail-navigator {
     position: absolute;
+    top: 50%;
+    left: -15%;
     @include mixin.flex;
     flex-direction: column;
+    transform: translateY(-50%);
     z-index: 10;
 
     svg {
@@ -24,7 +27,7 @@
       cursor: pointer;
 
       &.current {
-        border: 2px solid cornflowerblue;
+        border: 2px solid color.$color-primary;
       }
     }
   }
@@ -32,7 +35,14 @@
   .detail-slider {
     @include mixin.flex;
     gap: 1em;
-    transform: translateX(calc(var(--currIdx) * calc(-100%)));
+    transform: translateX(calc(var(--currIdx) * calc(-100% - 1em)));
     transition: all 0.5s ease-in;
+    overflow: hidden;
+
+    img {
+      display: block;
+      min-width: 100%;
+      object-fit: cover;
+    }
   }
 }

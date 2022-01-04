@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ProductInfo from "./ProductInfo/ProductInfo";
-import DetailCarousel from "./DetailCarousel/DetailCarousel";
+import ProductCarousel from "./ProductCarousel/ProductCarousel";
 import "./ProductDetail.scss";
 
 const ProductDetail = () => {
@@ -31,8 +31,6 @@ const ProductDetail = () => {
           // TODO: Token 저장 양식 맞추어 보기
           "access-token": localStorage.getItem("access-token"),
         },
-        method: "POST",
-        body: JSON.stringify(),
       })
         .then(res => res.json())
         .then(data => setProduct(data));
@@ -42,7 +40,7 @@ const ProductDetail = () => {
 
   return (
     <section className="product-detail">
-      <DetailCarousel images={product?.detail_images} />
+      <ProductCarousel images={product?.detail_images} />
       <ProductInfo product={product} />
     </section>
   );

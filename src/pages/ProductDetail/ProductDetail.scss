@@ -1,9 +1,10 @@
+// @use "../../styles/mixin" as mixin;
 @use "../../styles/color" as color;
-@use "../../styles/mixin" as mixin;
 
 .product-detail {
-  @include mixin.flex($justify: space-around);
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: auto 28rem;
+  place-items: center;
   min-height: 100vh;
   padding: 2rem;
   background-color: color.$bg-gray;

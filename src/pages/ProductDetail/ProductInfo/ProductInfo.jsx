@@ -3,7 +3,7 @@ import {
   AiOutlineDownload,
   AiOutlineStar,
 } from "react-icons/ai";
-import { BiShareAlt } from "react-icons/bi";
+import { BiShareAlt, BiPencil } from "react-icons/bi";
 import Dropdown from "./Dropdown/Dropdown";
 import "./ProductInfo.scss";
 
@@ -21,10 +21,20 @@ const ProductInfo = ({ product }) => {
       </header>
 
       <h2>{name}</h2>
-      <p>{serial_number}</p>
-      {STARS.map((_, idx) => (
-        <AiOutlineStar key={idx} />
-      ))}
+      <p className="serial-number">{serial_number}</p>
+
+      <div className="product-reviews">
+        <div className="reviews-star">
+          {STARS.map((_, idx) => (
+            <AiOutlineStar key={idx} />
+          ))}
+          <span>4.5 &nbsp;(52건)</span>
+        </div>
+        <span className="write-reviews">
+          <BiPencil size={16} />
+          상풍명 쓰기
+        </span>
+      </div>
 
       <div className="price-info">
         <span className="price-title">판매가</span>
@@ -32,9 +42,10 @@ const ProductInfo = ({ product }) => {
       </div>
 
       <div className="detail-coupon">
-        <span>회원님께 드리는 혜택</span>
+        <span>회원님께 드리는 혜택!</span>
         <button>
-          쿠폰 받기 <AiOutlineDownload />
+          <span>쿠폰 받기</span>
+          <AiOutlineDownload size={24} />
         </button>
       </div>
 

@@ -23,11 +23,22 @@
     }
   }
 
-  .price {
-    .bold {
-      font-weight: bold;
-    }
+  .serial-number {
+    margin: 0.5em 0;
+    color: color.$input-color;
+  }
 
+  .product-reviews {
+    @include mixin.flex($justify: space-between);
+    margin-bottom: 2.5em;
+
+    .write-reviews {
+      font-size: 0.875rem;
+      text-decoration: underline;
+    }
+  }
+
+  .price {
     &-info {
       @include mixin.flex($justify: space-between);
     }
@@ -36,17 +47,33 @@
       font-size: 0.975rem;
     }
 
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     font-weight: bold;
   }
 
   .detail-coupon {
     @include mixin.flex($justify: space-between);
-    margin: 1em 0;
+    margin: 1.5em 0 2.5em;
 
     span {
       color: color.$color-primary;
+      font-size: 0.875rem;
       font-weight: bold;
+    }
+
+    button {
+      @include mixin.flex;
+      gap: 0.5em;
+      padding: 0.5em 1em;
+      border: 1px solid color.$color-primary;
+      border-radius: 1.25em;
+      cursor: pointer;
+
+      svg {
+        background-color: color.$color-primary;
+        color: color.$bg-primary;
+        border-radius: 0.25em;
+      }
     }
   }
 

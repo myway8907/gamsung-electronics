@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
-import "./DetailCarousel.scss";
+import "./ProductCarousel.scss";
 
 const DetailCarousel = ({ images }) => {
   const [currIdx, setCurrIdx] = useState(0);
