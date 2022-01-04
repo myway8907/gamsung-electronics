@@ -29,7 +29,7 @@ const ProductDetail = () => {
       await fetch(`https://localhost:products/${id}`, {
         headers: {
           // TODO: Token 저장 양식 맞추어 보기
-          "auth-token": localStorage.getItem("token"),
+          "access-token": localStorage.getItem("access-token"),
         },
         method: "POST",
         body: JSON.stringify(),
