@@ -66,7 +66,7 @@ const SignForm = ({ signCheck }) => {
       .then(data => {
         localStorage.setItem("access_token", data.token);
         alert("로그인이 되었습니다.");
-        signNavigator(`/`);
+        signNavigator("/");
       })
       .catch(error => {
         console.error(error);
@@ -89,7 +89,7 @@ const SignForm = ({ signCheck }) => {
       .then(response => response.json())
       .then(() => {
         alert("회원가입이 되었습니다!");
-        signNavigator(`/`);
+        signNavigator("/");
       })
       .catch(error => {
         console.error(error);
@@ -103,12 +103,14 @@ const SignForm = ({ signCheck }) => {
       name: "email",
       type: "email",
       text: "이메일",
+      value: email,
       onchange: signInput,
     },
     {
       name: "password",
       type: "password",
       text: "비밀번호",
+      value: password,
       onchange: signInput,
     },
   ];
@@ -119,18 +121,21 @@ const SignForm = ({ signCheck }) => {
       name: "passwordCheck",
       type: "password",
       text: "비밀번호 확인",
+      value: passwordCheck,
       onchange: signupInput,
     },
     {
       name: "firstName",
       type: "text",
       text: "성",
+      value: firstName,
       onchange: signupInput,
     },
     {
       name: "lastName",
       type: "text",
       text: "이름",
+      value: lastName,
       onchange: signupInput,
     },
   ];
@@ -140,18 +145,21 @@ const SignForm = ({ signCheck }) => {
       name: "year",
       type: "text",
       text: "년",
+      value: year,
       onchange: signupInput,
     },
     {
       name: "month",
       type: "text",
       text: "월",
+      value: month,
       onchange: signupInput,
     },
     {
       name: "day",
       type: "text",
       text: "일",
+      value: day,
       onchange: signupInput,
     },
   ];
@@ -179,13 +187,14 @@ const SignForm = ({ signCheck }) => {
                 name={element.name}
                 type={element.type}
                 text={element.text}
+                value={element.value}
                 onchange={element.onchange}
               />
             );
           })}
       </div>
       <div className={`sign-${signCheck}-button`}>
-        {isSign && <button>뒤로</button>}
+        {isSign && <button onClick={() => signNavigator("/")}>뒤로</button>}
         <button
           className={signValidate ? "active" : "inactive"}
           disabled={!signValidate}
