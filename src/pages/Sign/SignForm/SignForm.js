@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import SignInput from "./SignInput/SignInput";
 import "./SignForm.scss";
+import { useNavigate } from "react-router-dom";
 
 const SignForm = ({ signCheck }) => {
   const [signInfo, setSignInfo] = useState({ email: "", password: "" });
@@ -12,6 +13,7 @@ const SignForm = ({ signCheck }) => {
     month: "",
     day: "",
   });
+  const signNavigator = useNavigate();
 
   const { email, password } = signInfo;
   const { passwordCheck, firstName, lastName, year, month, day } = signupInfo;
@@ -53,7 +55,7 @@ const SignForm = ({ signCheck }) => {
   const signValidate = isSign ? signupValidate : signinValidate;
 
   const signinRequest = e => {
-    fetch("http://10.58.0.137:8000/users/signin", {
+    fetch("http://10.58.4.103:8000/users/signin", {
       method: "POST",
       body: JSON.stringify({
         email: email,
@@ -62,18 +64,19 @@ const SignForm = ({ signCheck }) => {
     })
       .then(response => response.json())
       .then(data => {
-        if (data.MESSAGE === "SUCCESS") {
-          localStorage.setItem("access_token", data.access_token);
-        }
+        localStorage.setItem("access_token", data.token);
+        alert("로그인이 되었습니다.");
+        signNavigator(`/`);
       })
       .catch(error => {
         console.error(error);
+        alert("잠시 후 다시 시도해주세요.");
       });
     e.preventDefault();
   };
 
   const signupRequest = e => {
-    fetch("http://10.58.0.137:8000/users/signup", {
+    fetch("http://10.58.4.103:8000/users/signup", {
       method: "POST",
       body: JSON.stringify({
         email: email,
@@ -84,13 +87,13 @@ const SignForm = ({ signCheck }) => {
       }),
     })
       .then(response => response.json())
-      .then(data => {
-        if (data.MESSAGE === "SUCCESS") {
-          localStorage.setItem("access_token", data.access_token);
-        }
+      .then(() => {
+        alert("회원가입이 되었습니다!");
+        signNavigator(`/`);
       })
       .catch(error => {
         console.error(error);
+        alert("잠시 후 다시 시도해주세요.");
       });
     e.preventDefault();
   };
@@ -153,6 +156,7 @@ const SignForm = ({ signCheck }) => {
     },
   ];
   const SIGN_CHECK = isSign ? SIGNUP_INPUTS : SIGNIN_INPUTS;
+
   return (
     <form autoComplete="off" className="sign-form">
       {SIGN_CHECK.map(element => {
