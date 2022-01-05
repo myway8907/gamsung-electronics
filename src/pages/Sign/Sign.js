@@ -25,18 +25,18 @@ const Sign = () => {
 };
 
 const SIGNIN = {
-  text: "삼성계정으로 로그인",
+  text: "갬성계정으로 로그인",
   isSubtext: false,
   signCheck: "signin",
-  signText: "계정이 없으신가요?",
+  signText: "갬성 계정이 없으신가요?",
   signLink: "signup",
 };
 
 const SIGNUP = {
-  text: "삼성계정 만들기",
+  text: "갬성계정 만들기",
   isSubtext: true,
   signCheck: "signup",
-  signText: "계정이 있으신가요?",
+  signText: "갬성 계정이 있으신가요?",
   signLink: "signin",
 };
 

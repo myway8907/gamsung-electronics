@@ -56,6 +56,7 @@ const SignForm = ({ signCheck }) => {
 
   const API = "http://10.58.4.103:8000";
   const signinRequest = e => {
+    e.preventDefault();
     fetch(`${API}/users/signin`, {
       method: "POST",
       body: JSON.stringify({
@@ -73,10 +74,10 @@ const SignForm = ({ signCheck }) => {
         console.error(error);
         alert("잠시 후 다시 시도해주세요.");
       });
-    e.preventDefault();
   };
 
   const signupRequest = e => {
+    e.preventDefault();
     fetch(`${API}/users/signup`, {
       method: "POST",
       body: JSON.stringify({
@@ -96,7 +97,6 @@ const SignForm = ({ signCheck }) => {
         console.error(error);
         alert("잠시 후 다시 시도해주세요.");
       });
-    e.preventDefault();
   };
 
   const SIGNIN_INPUTS = [

@@ -7,7 +7,7 @@ const AuthHeader = () => {
     <header className="auth-header">
       <div>
         <h2>
-          <Link to="/">SAMSUNG</Link>
+          <Link to="/">GAMSUNG</Link>
         </h2>
         <span>Account</span>
       </div>
