@@ -9,6 +9,7 @@ const Products = () => {
 
   useEffect(() => {
     fetch("./data/Products/mockData.json", {
+      // fetch("http://10.58.0.35:8000/products", {
       method: "GET",
     })
       .then(response => response.json())
@@ -41,11 +42,12 @@ const Products = () => {
       <div className="buffer-layer" />
       <div className="search-status-layer">
         <span>검색결과:</span>
-        <span>9개</span>
+        <span>{products.length} 개</span>
       </div>
       <main className="main-container">
         <div className="aside-filter-container">
           <ProductsFilter
+            filterList={filterList}
             changeCheckStatus={changeCheckStatus}
             filterName={Object.keys(filterList)}
           />

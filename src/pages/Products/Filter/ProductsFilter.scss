@@ -1,11 +1,14 @@
-@use "src/styles/_mixin.scss";
-
 .productFilter {
+  // position: relative;
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
-  padding: 1vw 0.5vw;
+  padding-top: 1vw;
+  padding-bottom: 1vw;
+  padding-left: 0.5vw;
+  padding-right: 6vw;
   line-height: 30px;
+  // overflow: hidden;
 
   .product-type-filter {
     font-weight: bold;
@@ -20,7 +23,6 @@
     margin-left: 120px;
     padding: 5px 0;
     cursor: pointer;
-    background-color: cyan;
 
     .common-button {
       height: 4px;
@@ -32,35 +34,44 @@
     }
   }
 
-  // .expand-input {
-  //   display: none;
-  // }
-
-  .filtering-list {
-    height: 0;
-    overflow: hidden;
+  .underLine {
     flex-basis: 100%;
-    transition-property: height;
-    transition-duration: 0.7s;
-    transition-timing-function: linear;
-    margin-top: 20px;
-    list-style: none;
-    line-height: 34px;
-
-    input {
-      margin-left: 10px;
-    }
-
-    span {
-      padding-left: 20px;
-      font-size: 16px;
-      font-weight: bold;
-    }
+    height: 1px;
+    margin-top: 5px;
+    margin-right: 7px;
+    background-color: lightgray;
+    opacity: 0.5;
   }
-  .expand-input:checked ~ .filtering-list {
-    height: 500px;
-    transition-property: height;
-    transition-duration: 1.3s;
-    transition-timing-function: linear;
+
+  .list-container {
+    flex-basis: 100%;
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+
+    .filtering-list-shrink,
+    .filtering-list-expand {
+      // flex-basis: 100%;
+      left: 10px;
+      margin-top: 8px;
+      list-style: none;
+      line-height: 34px;
+    }
+
+    .filtering-list-shrink {
+      position: absolute;
+      top: -90px;
+      transition-property: top;
+      transition-timing-function: linear;
+      transition-duration: 0.5s;
+    }
+
+    .filtering-list-expand {
+      position: absolute;
+      top: 0;
+      transition-property: top;
+      transition-timing-function: linear;
+      transition-duration: 0.5s;
+    }
   }
 }
