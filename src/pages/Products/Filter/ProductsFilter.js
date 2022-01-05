@@ -9,20 +9,15 @@ const ProductsFilter = ({ filterList, changeCheckStatus, filterName }) => {
     setExpand(expand ? false : true);
   };
 
-  console.log(expand);
-
   return (
     <div className="productFilter">
-      {/* <input className="expand-input" id="expand-button" type="checkbox" /> */}
       <span className="product-type-filter">유형</span>
-      {/* <label htmlfor="expand-button"> */}
       <div className="expand-button-container" onClick={expandFilter}>
         <div className="common-button first-button-element" />
         <div className="common-button second-button-element" />
         <div className="common-button third-button-element" />
       </div>
       <div className="underLine" />
-      {/* </label> */}
       <div className="list-container">
         <ul
           className={expand ? "filtering-list-expand" : "filtering-list-shrink"}

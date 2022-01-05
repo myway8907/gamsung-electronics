@@ -4,15 +4,16 @@
   justify-content: flex-start;
   flex-wrap: wrap;
   padding-top: 1vw;
-  padding-bottom: 1vw;
-  padding-left: 0.5vw;
-  padding-right: 6vw;
+  margin-right: 6vw;
   line-height: 30px;
-  // overflow: hidden;
 
   .product-type-filter {
     font-weight: bold;
     letter-spacing: -0.02em;
+  }
+
+  .product-type-filter {
+    padding-left: 8px;
   }
 
   .expand-button-container {
@@ -20,7 +21,7 @@
     flex-direction: column;
     justify-content: space-between;
     height: 30px;
-    margin-left: 120px;
+    margin-left: 105px;
     padding: 5px 0;
     cursor: pointer;
 
@@ -35,8 +36,9 @@
   }
 
   .underLine {
-    flex-basis: 100%;
+    flex-basis: 180px;
     height: 1px;
+    width: 10px;
     margin-top: 5px;
     margin-right: 7px;
     background-color: lightgray;
@@ -51,7 +53,6 @@
 
     .filtering-list-shrink,
     .filtering-list-expand {
-      // flex-basis: 100%;
       left: 10px;
       margin-top: 8px;
       list-style: none;
