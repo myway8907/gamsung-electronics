@@ -43,6 +43,7 @@
     transition-property: height;
     transition-duration: 0.7s;
     transition-timing-function: linear;
+    margin-top: 20px;
     list-style: none;
     line-height: 34px;
 
@@ -56,15 +57,10 @@
       font-weight: bold;
     }
   }
-
   .expand-input:checked ~ .filtering-list {
     height: 500px;
     transition-property: height;
     transition-duration: 1.3s;
     transition-timing-function: linear;
-  }
-
-  .filtering-list {
-    margin-top: 20px;
   }
 }
