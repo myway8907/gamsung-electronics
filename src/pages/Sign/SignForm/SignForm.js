@@ -54,8 +54,9 @@ const SignForm = ({ signCheck }) => {
   const isSign = signCheck === "signup";
   const signValidate = isSign ? signupValidate : signinValidate;
 
+  const API = "http://10.58.4.103:8000";
   const signinRequest = e => {
-    fetch("http://10.58.4.103:8000/users/signin", {
+    fetch(`${API}/users/signin`, {
       method: "POST",
       body: JSON.stringify({
         email: email,
@@ -76,7 +77,7 @@ const SignForm = ({ signCheck }) => {
   };
 
   const signupRequest = e => {
-    fetch("http://10.58.4.103:8000/users/signup", {
+    fetch(`${API}/users/signup`, {
       method: "POST",
       body: JSON.stringify({
         email: email,
