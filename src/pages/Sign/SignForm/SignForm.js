@@ -1,7 +1,7 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import SignInput from "./SignInput/SignInput";
 import "./SignForm.scss";
-import { useNavigate } from "react-router-dom";
 
 const SignForm = ({ signCheck }) => {
   const [signInfo, setSignInfo] = useState({ email: "", password: "" });
