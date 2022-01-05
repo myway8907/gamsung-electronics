@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import SignInput from "./SignInput/SignInput";
 import "./SignForm.scss";
 
-const SignForm = ({ signCheck }) => {
+const SignForm = ({ signCheck, changeSign }) => {
   const [signInfo, setSignInfo] = useState({ email: "", password: "" });
   const [signupInfo, setSignupInfo] = useState({
     passwordCheck: "",
@@ -17,6 +17,21 @@ const SignForm = ({ signCheck }) => {
 
   const { email, password } = signInfo;
   const { passwordCheck, firstName, lastName, year, month, day } = signupInfo;
+
+  useEffect(() => {
+    return () => {
+      setSignInfo({ email: "", password: "" });
+      signCheck === "signup" &&
+        setSignupInfo({
+          passwordCheck: "",
+          firstName: "",
+          lastName: "",
+          year: "",
+          month: "",
+          day: "",
+        });
+    };
+  }, [changeSign]);
 
   const signInput = e => {
     const { name, value } = e.target;
@@ -111,7 +126,7 @@ const SignForm = ({ signCheck }) => {
       name: "password",
       type: "password",
       text: "비밀번호",
-      value: password,
+      value: signInfo.password,
       onchange: signInput,
     },
   ];
@@ -174,6 +189,7 @@ const SignForm = ({ signCheck }) => {
             key={element.name}
             name={element.name}
             type={element.type}
+            value={element.value}
             text={element.text}
             onchange={element.onchange}
           />
