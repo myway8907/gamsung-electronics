@@ -4,11 +4,11 @@
 .detail-carousel {
   position: relative;
   max-width: 37.5rem;
+  overflow: hidden;
 
   .detail-navigator {
     position: absolute;
     top: 50%;
-    left: -15%;
     @include mixin.flex;
     flex-direction: column;
     transform: translateY(-50%);
@@ -37,7 +37,6 @@
     gap: 1em;
     transform: translateX(calc(var(--currIdx) * calc(-100% - 1em)));
     transition: all 0.5s ease-in;
-    overflow: hidden;
 
     img {
       display: block;

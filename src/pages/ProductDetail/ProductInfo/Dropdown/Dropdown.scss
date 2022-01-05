@@ -1,11 +1,14 @@
 @use "../../../../styles/mixin" as mixin;
+@use "../../../../styles/color" as color;
 
 .detail-dropdown {
   position: relative;
-  margin: 1rem 0;
+  padding: 1rem;
 
   .dropdown-header {
     @include mixin.flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
 
     h3 {
       display: inline-block;
@@ -13,17 +16,43 @@
     }
 
     span {
-      padding: 0 20%;
-      font-size: 1.125rem;
+      font-size: 0.975rem;
       font-weight: bold;
     }
 
-    svg {
-      position: absolute;
-      right: 1em;
+    .dropdown-arrow {
+      place-self: end;
       font-size: 1.25em;
       font-weight: bold;
       cursor: pointer;
+      transition: all 0.4s ease-in;
+
+      &.open {
+        transform: rotate(0.5turn);
+      }
+    }
+  }
+
+  // FIXME: transition on conditional rendering
+  section.hidden {
+    transition: all 500ms ease-in;
+    position: absolute;
+    opacity: 0;
+    &.open {
+      transform: scaleY(1);
+      opacity: 1;
+    }
+  }
+
+  .dropdown-desc {
+    margin: 1em 0;
+    padding: 2em;
+    background-color: lightgray;
+    border-radius: 0.5em;
+
+    .primary {
+      font-weight: bold;
+      color: color.$color-primary;
     }
   }
 }

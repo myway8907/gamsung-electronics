@@ -28,16 +28,17 @@ const ProductDetail = () => {
     const getDetail = async () => {
       await fetch(`https://localhost:products/${id}`, {
         headers: {
-          // TODO: Token 저장 양식 맞추어 보기
-          "access-token": localStorage.getItem("access-token"),
+          Authorization: localStorage.getItem("access-token"),
         },
       })
         .then(res => res.json())
         .then(data => setProduct(data));
     };
-    // getDetail();
+    getDetail();
   }, []);
 
+  // FIXME: conditional rendering
+  if (product?.id) return;
   return (
     <section className="product-detail">
       <ProductCarousel images={product?.detail_images} />

@@ -8,17 +8,15 @@ const Dropdown = ({ size, title, desc, children }) => {
 
   return (
     <div className="detail-dropdown" style={{ "--size": size }}>
-      <header className="dropdown-header">
+      <header
+        className="dropdown-header"
+        onClick={() => setIsClicked(!isClicked)}
+      >
         <h3>{title}</h3>
-        <span onClick={() => setIsClicked(!isClicked)}>{desc}</span>
-        <IoIosArrowDown
-          className={`${dropdownOpen}`}
-          onClick={() => setIsClicked(!isClicked)}
-        />
+        <span>{desc}</span>
+        <IoIosArrowDown className={`${dropdownOpen} dropdown-arrow`} />
       </header>
-      {isClicked && (
-        <div className={`${dropdownOpen} dropdown-detail`}>{children}</div>
-      )}
+      <div className={`${dropdownOpen} hidden`}>{isClicked && children}</div>
     </div>
   );
 };
