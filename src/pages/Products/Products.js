@@ -8,14 +8,11 @@ const Products = () => {
   const [filterList, setFilterList] = useState({});
 
   useEffect(() => {
-    fetch("./data/Products/mockData.json", {
-      // fetch("http://10.58.0.35:8000/products", {
+    fetch("/data/products/mockData.json", {
       method: "GET",
     })
       .then(response => response.json())
-      .then(result => {
-        setProducts([...result.results]);
-      });
+      .then(result => setProducts([...result.results]));
   }, []);
 
   useEffect(() => {
@@ -61,6 +58,7 @@ const Products = () => {
               serial_number,
               price,
               storage,
+              id,
             }) => {
               if (!Object.values(filterList).includes(true)) {
                 return (
@@ -71,6 +69,7 @@ const Products = () => {
                     serial_number={serial_number}
                     price={price}
                     storage={storage}
+                    id={id}
                   />
                 );
               } else if (filterList[subcategory]) {
@@ -82,6 +81,7 @@ const Products = () => {
                     serial_number={serial_number}
                     price={price}
                     storage={storage}
+                    id={id}
                   />
                 );
               }

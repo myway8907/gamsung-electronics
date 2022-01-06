@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./ProductCard.scss";
 
 const ProductCard = ({
@@ -8,6 +9,12 @@ const ProductCard = ({
   price,
   storage,
 }) => {
+  const navigate = useNavigate();
+
+  const moveDetail = () => {
+    navigate(`/products/${serial_number}`);
+  };
+
   return (
     <div className="productCard">
       <img className="product-image" src={detail_images} alt="product" />
@@ -32,7 +39,11 @@ const ProductCard = ({
       </div>
       <div className="product-purchase">
         <form>
-          <button className="purchase-button" type="button">
+          <button
+            className="purchase-button"
+            type="button"
+            onClick={moveDetail}
+          >
             구매하기
           </button>
         </form>

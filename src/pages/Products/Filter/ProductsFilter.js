@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import FilterElement from "./FilterElement/FilterElement";
 import "./ProductsFilter.scss";
 
-const ProductsFilter = ({ filterList, changeCheckStatus, filterName }) => {
+const ProductsFilter = ({ changeCheckStatus, filterName }) => {
   const [expand, setExpand] = useState(false);
 
   const expandFilter = () => {
