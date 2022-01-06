@@ -1,18 +1,17 @@
 @use "src/styles/_mixin.scss";
 
 .productCard {
-  //카드 하나의 width는 grid에 의해 정해진다
+  max-width: 360px;
   outline: 0.5px solid transparent;
   border-radius: 25px;
   padding: 28px 30px 18px;
-  // background-color: rgb(247, 247, 247);
   background-color: #f7f7f7;
   text-align: center;
 
   .product-image {
+    border-radius: 25px;
     display: block;
-    width: 100%; //
-    // height: 350px; //나중에 이거 지워서 width와 비율에 의해 height가 정해지도록 해야함
+    width: 100%;
   }
 
   .product-color-container {
@@ -23,12 +22,6 @@
     margin-top: 16px;
     font-size: 2rem;
 
-    // .product-color-collection {
-    //   display: flex;
-    //   justify-content: space-between;
-    //   // word-break: keep-all;
-    //   // text-overflow: hidden;
-    // }
     .product-color-selector {
       display: block;
       width: 20px;
@@ -55,7 +48,12 @@
     justify-content: center;
     margin-top: 25px;
     .product-storage-selector {
-      padding: 0 10px; //동그라미 크기 좀 키우려고 임시로 넣은것
+      padding: 5px 20px;
+      border: 1px solid rgba(0, 0, 0, 0.4);
+      border-radius: 10px;
+      background: white;
+      font-size: 12px;
+      font-weight: bold;
     }
   }
 

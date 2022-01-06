@@ -3,10 +3,22 @@
 
 .products {
   .top-image-container {
-    height: 300px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 61vw;
+    max-height: 360px;
     background-image: url("../../../public/images/products/gamsung_images/top-image.jpg");
-    background-size: 600px; //임시 이미지
-    background-position: 50% 50%; //임시 이미지
+    background-size: cover;
+    background-position: 50% 50%;
+    line-height: 60px;
+
+    .products-list-title {
+      margin-left: 19%;
+      font-size: 45px;
+      font-weight: bold;
+      letter-spacing: -0.5;
+    }
   }
 
   .buffer-layer {

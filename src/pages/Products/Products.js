@@ -35,7 +35,9 @@ const Products = () => {
 
   return (
     <div className="products">
-      <div className="top-image-container" />
+      <div className="top-image-container">
+        <span className="products-list-title">스마트폰</span>
+      </div>
       <div className="buffer-layer" />
       <div className="search-status-layer">
         <span>검색결과:</span>
