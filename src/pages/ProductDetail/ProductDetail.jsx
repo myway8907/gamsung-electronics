@@ -10,7 +10,7 @@ const ProductDetail = () => {
 
   useEffect(() => {
     const getDetail = async () => {
-      await fetch(`http://10.58.0.35:8000/products/${serial_number}`, {
+      await fetch(`http://10.58.3.15:8000/products/${serial_number}`, {
         headers: {
           Authorization: localStorage.getItem("access-token"),
         },
