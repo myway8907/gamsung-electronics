@@ -6,7 +6,6 @@ import "./ProductDetail.scss";
 
 const ProductDetail = () => {
   const { serial_number } = useParams();
-
   const [product, setProduct] = useState();
 
   useEffect(() => {
@@ -17,12 +16,12 @@ const ProductDetail = () => {
         },
       })
         .then(res => res.json())
-        .then(data => setProduct(data));
+        .then(data => setProduct(data?.results[0]));
     };
     getDetail();
   }, []);
 
-  if (!product?.id) return <h1>Loading...</h1>;
+  if (!product?.name) return <h1>Loading...</h1>;
   return (
     <section className="product-detail">
       <ProductCarousel images={product?.detail_images} />
