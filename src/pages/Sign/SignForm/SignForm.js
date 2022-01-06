@@ -212,7 +212,9 @@ const SignForm = ({ signCheck, changeSign }) => {
           })}
       </div>
       <div className={`sign-${signCheck}-button`}>
-        {isSign && <button onClick={() => signNavigator("/")}>뒤로</button>}
+        {isSign && (
+          <button onClick={() => signNavigator("/gamsung")}>뒤로</button>
+        )}
         <button
           className={signValidate ? "active" : "inactive"}
           disabled={!signValidate}
