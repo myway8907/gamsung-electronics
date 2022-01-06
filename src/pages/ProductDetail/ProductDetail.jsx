@@ -26,7 +26,7 @@ const ProductDetail = () => {
   useEffect(() => {
     // FIXME: 백엔드 endpoint 작성 예정
     const getDetail = async () => {
-      await fetch(`https://localhost:products/${id}`, {
+      await fetch(`https://products/${id}`, {
         headers: {
           Authorization: localStorage.getItem("access-token"),
         },
@@ -34,7 +34,7 @@ const ProductDetail = () => {
         .then(res => res.json())
         .then(data => setProduct(data));
     };
-    getDetail();
+    // getDetail();
   }, []);
 
   // FIXME: conditional rendering

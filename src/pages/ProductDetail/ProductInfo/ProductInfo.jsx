@@ -141,7 +141,7 @@ const ProductInfo = ({ product }) => {
         </div>
       </section>
 
-      <Dropdown title={`${earnPoint}포인트 적립`}>
+      <Dropdown title={`${earnPoint}포인트 적립`} height="6rem">
         <section className="dropdown-desc">
           삼성전자 &nbsp;
           <span className="primary">
@@ -153,7 +153,7 @@ const ProductInfo = ({ product }) => {
       </Dropdown>
       <div className="divider" />
 
-      <Dropdown title="삼성카드 5%">
+      <Dropdown title="삼성카드 5%" height="8rem">
         <section className="dropdown-desc">
           <header>
             <span className="primary">삼성카드 </span>

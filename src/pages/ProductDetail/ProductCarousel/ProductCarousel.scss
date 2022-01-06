@@ -3,18 +3,19 @@
 
 .detail-carousel {
   position: relative;
-  max-width: 37.5rem;
+  width: 43rem;
   overflow: hidden;
 
   .detail-navigator {
     position: absolute;
-    top: 50%;
-    @include mixin.flex;
+    top: 0;
+    bottom: 0;
+    @include mixin.flex($justify: center);
     flex-direction: column;
-    transform: translateY(-50%);
+    background-color: color.$bg-gray;
     z-index: 10;
 
-    svg {
+    .navigator-arrow {
       font-size: 1.25rem;
       cursor: pointer;
     }
@@ -33,9 +34,10 @@
   }
 
   .detail-slider {
+    max-width: 38rem;
     @include mixin.flex;
     gap: 1em;
-    transform: translateX(calc(var(--currIdx) * calc(-100% - 1em)));
+    transform: translateX(calc(var(--currIdx) * calc(-100% - 1em) + 5.5rem));
     transition: all 0.5s ease-in;
 
     img {

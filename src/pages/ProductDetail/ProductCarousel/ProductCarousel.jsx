@@ -7,28 +7,28 @@ const DetailCarousel = ({ images }) => {
 
   const slideNextImage = () => {
     if (currIdx === images.length - 1) return;
-    setCurrIdx(currIdx + 1);
+    setCurrIdx(prevIndex => prevIndex + 1);
   };
 
   const slidePrevImage = () => {
     if (currIdx === 0) return;
-    setCurrIdx(currIdx - 1);
+    setCurrIdx(prevIndex => prevIndex - 1);
   };
 
   return (
     <section className="detail-carousel" style={{ "--currIdx": `${currIdx}` }}>
       <section className="detail-navigator">
-        <IoIosArrowUp onClick={slidePrevImage} />
+        <IoIosArrowUp onClick={slidePrevImage} className="navigator-arrow" />
         {images?.map((image, idx) => (
           <img
             src={image}
             key={idx}
-            alt="detail-navigator"
+            alt={image}
             className={`${currIdx === idx && "current"}`}
             onClick={() => setCurrIdx(idx)}
           />
         ))}
-        <IoIosArrowDown onClick={slideNextImage} />
+        <IoIosArrowDown onClick={slideNextImage} className="navigator-arrow" />
       </section>
       <section className="detail-slider">
         {images?.map((image, idx) => (

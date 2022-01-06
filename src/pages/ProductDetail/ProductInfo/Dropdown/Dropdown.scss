@@ -33,15 +33,8 @@
     }
   }
 
-  // FIXME: transition on conditional rendering
-  section.hidden {
-    transition: all 500ms ease-in;
-    position: absolute;
-    opacity: 0;
-    &.open {
-      transform: scaleY(1);
-      opacity: 1;
-    }
+  .dropdown-detail-wrapper {
+    animation: var(--animation) forwards;
   }
 
   .dropdown-desc {
@@ -53,6 +46,28 @@
     .primary {
       font-weight: bold;
       color: color.$color-primary;
+    }
+  }
+
+  @keyframes dropdownMount {
+    0% {
+      height: 0;
+      opacity: 0;
+    }
+    to {
+      height: var(--height, 2rem);
+      opacity: 1;
+    }
+  }
+
+  @keyframes dropdownUnmount {
+    from {
+      height: var(--height, 2rem);
+      opacity: 1;
+    }
+    to {
+      height: 0;
+      opacity: 0;
     }
   }
 }
