@@ -70,7 +70,7 @@ const SignForm = ({ signCheck, changeSign }) => {
   const isSign = signCheck === "signup";
   const signValidate = isSign ? signupValidate : signinValidate;
 
-  const API = "http://10.58.3.232:8000";
+  const API = "http://10.58.5.80:8000";
   const signinRequest = e => {
     e.preventDefault();
     fetch(`${API}/users/signin`, {
@@ -84,7 +84,7 @@ const SignForm = ({ signCheck, changeSign }) => {
       .then(data => {
         localStorage.setItem("access_token", data.token);
         alert("로그인이 되었습니다.");
-        signNavigator("/");
+        signNavigator("/gamsung");
       })
       .catch(error => {
         console.error(error);
@@ -107,7 +107,7 @@ const SignForm = ({ signCheck, changeSign }) => {
       .then(response => response.json())
       .then(() => {
         alert("회원가입이 되었습니다!");
-        signNavigator("/");
+        signNavigator("/gamsung");
       })
       .catch(error => {
         console.error(error);
