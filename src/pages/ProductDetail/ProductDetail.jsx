@@ -5,28 +5,13 @@ import ProductCarousel from "./ProductCarousel/ProductCarousel";
 import "./ProductDetail.scss";
 
 const ProductDetail = () => {
-  const { id } = useParams();
+  const { serial_number } = useParams();
 
-  // TODO: Fake data -> 추후 백엔드와 통신!
-  const [product, setProduct] = useState({
-    main_image: "https://fakeimg.pl/250x100/",
-    detail_images: [
-      "https://fakeimg.pl/500x400/",
-      "https://fakeimg.pl/500x400/",
-      "https://fakeimg.pl/500x400/",
-      "https://fakeimg.pl/500x400/",
-    ],
-    name: "갤럭시 Z 폴드3 5G 자급제",
-    price: 1998700,
-    serial_number: "SM-F926NZKAKOO",
-    storage: 256,
-    subcategory: "갤럭시 Z",
-  });
+  const [product, setProduct] = useState();
 
   useEffect(() => {
-    // FIXME: 백엔드 endpoint 작성 예정
     const getDetail = async () => {
-      await fetch(`https://products/${id}`, {
+      await fetch(`http://10.58.0.35:8000/products/${serial_number}`, {
         headers: {
           Authorization: localStorage.getItem("access-token"),
         },
@@ -34,11 +19,10 @@ const ProductDetail = () => {
         .then(res => res.json())
         .then(data => setProduct(data));
     };
-    // getDetail();
+    getDetail();
   }, []);
 
-  // FIXME: conditional rendering
-  if (product?.id) return;
+  if (!product?.id) return <h1>Loading...</h1>;
   return (
     <section className="product-detail">
       <ProductCarousel images={product?.detail_images} />
