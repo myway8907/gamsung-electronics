@@ -17,7 +17,9 @@ const ProductCard = ({
 
   return (
     <div className="productCard">
-      <img className="product-image" src={detail_images} alt="product" />
+      <div className="product-image-container">
+        <img className="product-image" src={detail_images} alt="product" />
+      </div>
       <div className="product-color-container">
         <span className="product-color-selector" />
         <span className="product-color-selector" />
