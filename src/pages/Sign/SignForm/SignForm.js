@@ -53,8 +53,9 @@ const SignForm = ({ signCheck, changeSign }) => {
     /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
   const emailValidate = regExpEmail.test(email);
 
-  const regExpPassword = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{8,16}$/;
-  const passwordValidate = regExpPassword.test(password);
+  // const regExpPassword = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{8,16}$/;
+  // const passwordValidate = regExpPassword.test(password);
+  const passwordValidate = true;
   const passwordCheckValidate = password === passwordCheck;
 
   const yearCheck = 1900 <= year && year <= 2021;
@@ -69,7 +70,7 @@ const SignForm = ({ signCheck, changeSign }) => {
   const isSign = signCheck === "signup";
   const signValidate = isSign ? signupValidate : signinValidate;
 
-  const API = "http://10.58.4.103:8000";
+  const API = "http://10.58.3.232:8000";
   const signinRequest = e => {
     e.preventDefault();
     fetch(`${API}/users/signin`, {
