@@ -21,7 +21,7 @@
 
 ### 적용 기술
 
-> - Front-End : React.js, Sass
+> - Front-End : React, Sass
 > - Back-End : Python, Django web framework, Bcrypt, My SQL
 > - Common : RESTful API, CRUD
 
