@@ -41,7 +41,7 @@
 - 카드 형태의 상품 리스트 페이지 구현
 - 구매하기 버튼 클릭 시 상세페이지로 해당 제품 고유 ID 값 전달
 - 상품 유형 별 필터링 기능 front-end 영역에서 구현
-- CSS syntax 이용한 transition 효과 첫 
+- CSS syntax 이용한 transition 효과 첫 시도
 
 <br>
 
