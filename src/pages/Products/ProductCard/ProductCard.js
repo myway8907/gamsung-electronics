@@ -2,7 +2,13 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./ProductCard.scss";
 
-const ProductCard = ({ main_image, name, serial_number, price, storage }) => {
+const ProductCard = ({
+  detail_images,
+  name,
+  serial_number,
+  price,
+  storage,
+}) => {
   const navigate = useNavigate();
 
   const moveDetail = () => {
@@ -12,7 +18,7 @@ const ProductCard = ({ main_image, name, serial_number, price, storage }) => {
   return (
     <div className="productCard">
       <div className="product-image-container">
-        <img className="product-image" src={main_image} alt="product" />
+        <img className="product-image" src={detail_images} alt="product" />
       </div>
       <div className="product-color-container">
         <span className="product-color-selector" />

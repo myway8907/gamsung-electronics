@@ -8,7 +8,7 @@ const Products = () => {
   const [filterList, setFilterList] = useState({});
 
   useEffect(() => {
-    fetch("http://10.58.3.15:8000/products", {
+    fetch("./data/Products/mockData.json", {
       method: "GET",
     })
       .then(response => response.json())
@@ -55,7 +55,7 @@ const Products = () => {
           {products.map(
             ({
               subcategory,
-              main_image,
+              detail_images,
               name,
               serial_number,
               price,
@@ -66,7 +66,7 @@ const Products = () => {
                 return (
                   <ProductCard
                     key={serial_number}
-                    main_image={main_image}
+                    detail_images={detail_images[0]}
                     name={name}
                     serial_number={serial_number}
                     price={price}
@@ -78,7 +78,7 @@ const Products = () => {
                 return (
                   <ProductCard
                     key={serial_number}
-                    main_image={main_image}
+                    detail_images={detail_images[0]}
                     name={name}
                     serial_number={serial_number}
                     price={price}
