@@ -1,6 +1,6 @@
 ## Gamsung 프로젝트 소개
 
-- 국내 시총 1위 기업 삼성전자 사이트 https://www.samsung.com/sec/ 클론
+- 국내 시총 1위 기업 삼성전자 쇼핑 사이트를 모티브로한 전자제품 쇼핑몰 구현
 - 짧은 프로젝트 기간동안 개발에 집중해야 하므로 디자인/기획 부분만 클론했습니다.
 - 개발은 초기 세팅부터 전부 직접 구현했으며, 아래 데모 영상에서 보이는 부분은 모두 백앤드와 연결하여 실제 사용할 수 있는 서비스 수준으로 개발한 것입니다.
 
@@ -11,19 +11,12 @@
 - [백엔드 github 링크](https://github.com/wecode-bootcamp-korea/28-1st-Gamsung-backend)
 
 ### 프로젝트 선정이유
-
 - 디자인이 깔끔하고 쇼핑몰 웹사이트가 갖추어야할 다양한 기능들을 두루 갖추고 있음
-
-
-<br>
-
 ## 적용 기술 및 구현 기능
-
 ### 적용 기술
-
-> - Front-End : React, Sass
-> - Back-End : Python, Django web framework, Bcrypt, My SQL
-> - Common : RESTful API, CRUD
+- Front-End : React, Sass
+- Back-End : Python, Django web framework, Bcrypt, My SQL
+- Common : RESTful API, CRUD
 
 
 
@@ -35,13 +28,28 @@
 - 상품 리스트
 - 상품 상세 페이지
 
-
 #### 상품 리스트 (본인 담당)
+<img width="500px" alt="products" src="https://user-images.githubusercontent.com/93215875/159445750-14e75b08-c0d8-451f-85ac-cad8b216dde4.png" />
+✔️ React를 이용하여 상품 목록 페이지를 구현하고, 목록 내용에 필터를 적용하여 화면 렌더링
 
-- 카드 형태의 상품 리스트 페이지 구현
-- 구매하기 버튼 클릭 시 상세페이지로 해당 제품 고유 ID 값 전달
-- 상품 유형 별 필터링 기능 front-end 영역에서 구현
-- CSS syntax 이용한 transition 효과 첫 시도
+✔️ **CSS grid 사용한 화면 레이아웃 구성**
+
+✔️ **Sass를 사용한 스타일링**
+
+- `hover` , `box shadow` 속성을 적용하여 마우스커서 상호작용
+- 공통되는 스타일링 요소의 경우 `Sass - mixin` 기능을 활용
+
+✔️ **컴포넌트 재사용**
+
+- 카드 컴포넌트를 사용하여 상품정보 카드 반복 렌더링
+- 카드 컴포넌트 안의 내용들은 데이터가 저장된 React state를 props로 전달받아 표현
+- 상품 개수에 따라 `grid row` 개수를 유동적으로 설정
+- 추가로 `query string`을 이용한 `pagination` 기능 구현
+
+✔️ **Router 컴포넌트 구성**
+
+- `구매하기` 버튼 클릭 시, 제품의 상세 페이지로 이동
+- 백엔드 서버로 부터 전달받은 제품 고유의 id 값을 path parameter에 활용하여 웹페이지 Route 구성
 
 <br>
 
